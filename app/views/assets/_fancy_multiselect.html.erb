@@ -1,0 +1,65 @@
+<%
+  selected ||= nil
+  collection_id = name.to_s.gsub(']','').gsub(/[^-a-zA-Z0-9:.]/, "_")
+  select_prompt = "Select #{association_text}..."
+  possibilities_collection_id = "possible_#{collection_id}"
+  possibilities_options ||= {}
+  possibilities_options.reverse_merge!({ id: possibilities_collection_id,
+                                         class: 'form-control',
+                                         prompt: select_prompt,
+                                         autocomplete: 'off',
+                                         'data-associations-list-id' => collection_id
+                                       })
+  title ||= association_text.pluralize
+  title += '<span class="required">*</span>'.html_safe if required
+
+  group_options_by ||= nil
+  p = ->(o) { [truncate(o.send(text_method), length: 120), o.send(value_method)] }
+
+  if group_options_by
+    select_options = grouped_options_for_select(possibilities.group_by(&group_options_by).each { |_, v| v.map!(&p) })
+    unscoped_select_options = grouped_options_for_select(unscoped_possibilities.group_by(&group_options_by).each { |_, v| v.map!(&p) })
+  else
+    select_options = options_for_select(possibilities.map(&p))
+    unscoped_select_options = options_for_select(unscoped_possibilities.map(&p))
+  end
+
+  existing_json = associations_json_from_relationship(selected, fieldName: name)
+
+  intro ||= "The following #{association_text.pluralize} are associated with this #{object_type_text.downcase}:"
+  help_text = "Here you can associate the #{object_type_text} with specific #{association_text.pluralize}." unless defined? help_text
+%>
+
+<%= folding_panel(title, hidden, id: "add_#{association}_form",
+                  data: { role: 'seek-fancy-multiselect' },
+                  help_text: help_text) do %>
+  <div class="row">
+    <div class="col-md-<%= preview_disabled ? '12' : '8'-%>">
+      <p class="help-block"><%= intro %></p>
+
+      <%= associations_list(collection_id, 'associations/general', existing_json, 'data-field-name' => name, empty_text: "No #{association.to_s}") %>
+
+      <div class="association_step">
+        <%# The JavaScript that handles adding items to the list is bound to elemnts with the 'data-association-list-id' property %>
+        <div class="form-group">
+          <% if other_projects_checkbox && unscoped_possibilities.any? %>
+            <%= render partial: 'assets/swappable_selects',
+                       locals: { select_options: select_options,
+                                 alternative_select_options: unscoped_select_options,
+                                 is_checked: false,
+                                 options: possibilities_options,
+                                 check_box_text: "Associate #{association_text.pluralize} from other #{('project').pluralize}?"
+                       } %>
+          <% else %>
+            <%= select_tag nil, select_options, possibilities_options -%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% unless preview_disabled %>
+      <div class="col-md-4">
+        <%= render partial: 'assets/preview_box', locals: { preview_name: association.to_s } -%>
+      </div>
+    <% end %>
+  </div>
+<% end %>

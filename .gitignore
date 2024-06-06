@@ -1,56 +1,96 @@
-*.gem
-*.rbc
-/.config
-/coverage/
-/InstalledFiles
-/pkg/
-/spec/reports/
-/spec/examples.txt
-/test/tmp/
-/test/version_tmp/
-/tmp/
+syntax: glob
+.redcar/
+.idea/
 
-# Used by dotenv library to load environment variables.
-# .env
+data.sql
+reset-db.sh
+rails_best_practices_output.html
 
-# Ignore Byebug command history file.
-.byebug_history
+db/*.sqlite3
+db/*.sqlite3-journal
+config/database.yml
+config/initializers/seek_local.rb
+config/environment_local.rb
+config/virtuoso_settings.yml
+config/initializers/taverna_server.rb
+config/using-docker
 
-## Specific to RubyMotion:
-.dat*
-.repl_history
-build/
-*.bridgesupport
-build-iPhoneOS/
-build-iPhoneSimulator/
+*.DS_Store
+log/*.log*
+log/puma*
 
-## Specific to RubyMotion (use of CocoaPods):
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
-#
-# vendor/Pods/
+filestore*/
+filestore
 
-## Documentation cache and generated files:
-/.yardoc/
-/_yardoc/
-/doc/
-/rdoc/
+debug.log
+.project
+.buildpath
 
-## Environment normalization:
-/.bundle/
-/vendor/bundle
-/lib/bundler/man/
+tmp/pids/*
+tmp/cache/*
+tmp/dev-cache/*
+tmp/avatars/*
+tmp/models/*
+tmp/model_images/*
+tmp/restart.txt
+tmp/rubycritic/*
+tmp/profile-*
+tmp/miniprofiler/*
+tmp/test_content_blobs/*
+tmp/rubycritic/*
+tmp/rdf/
+tmp/*.csv
+tmp/*.zip
+tmp/zip-files
+tmp/testing-filestore
+tmp/testing-seek-cache
+tmp/rubycritic
+tmp/fleximage
+tmp/performance
+tmp/user_uuid_studies_upload
+*.tmp*
+*~
 
-# for a library or gem, you might want to ignore these files since the code is
-# intended to run in multiple environments; otherwise, check them in:
-# Gemfile.lock
-# .ruby-version
-# .ruby-gemset
+solr/production/data
+solr/development/data
+solr/test/data
+solr/data/
+solr/pids/
+solr/default/data
 
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
+/public/api/definitions/openapi-v3-resolved.*
 
-# Used by RuboCop. Remote config files pulled in from inherit_from directive.
-# .rubocop-https?--*
+public/help_images/*
+public/javascripts/*_cached.js
+public/javascripts/i18n.js
+public/javascripts/translations.js
+public/stylesheets/*_cached.css
+public/system/
+public/sitemaps/*
+
+public/assets/
+public/assets_dev/
+public/javascripts/
+
+.bundle/config
+
+vendor/plugins/annotations/.git
+vendor/bundle/
+vendor/cache/
+*.~lock*
+
+*.orig
+
+coverage/
+
+Test\ Results*.html
+
+docker-compose.override.yml
+
+.vscode/
+
+.env.*.local
+.env.local
+
+*.ignore
+

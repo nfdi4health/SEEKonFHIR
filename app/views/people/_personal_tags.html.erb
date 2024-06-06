@@ -1,0 +1,26 @@
+<%
+   tags=[]
+
+   if !person.user.nil?
+       tags = person.user.annotations_by.with_attribute_name("tag")
+
+       tag_values = []
+       annotations = []
+       tags.each do |tag|
+         if !(tag_values.include?(tag.value.id))
+           annotations << tag
+           tag_values << tag.value.id
+         end
+       end
+       tags = annotations.collect{|a| a.value}
+   end
+-%>
+
+<%= panel("Their tags",
+          :help_text => "These are the tags that they have used to tag items in #{h(Seek::Config.instance_name)}. The weight of the tag indicates how often it has been used within #{h(Seek::Config.instance_name)}.") do %>
+
+  <div id='personal_tags'>
+    <%= render :partial=>"tags/tag_cloud",locals:{tags:tags, show_all:true, no_tags_text:"This person has not yet tagged anything."} %>
+  </div>
+ 
+<% end %>

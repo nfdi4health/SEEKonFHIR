@@ -1,0 +1,187 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+quentin_person:
+  first_name: "Quentin"
+  last_name: "Jones"
+  email: "quentin@email.com"
+
+johan_person:
+  first_name: "Johan"
+  last_name: "Bollen"
+  email: "Bollen@email.com"
+
+aaron_person:
+  first_name: "Aaron"
+  last_name: "Spiggle"
+  email: "aaron@email.com"
+
+three:
+  first_name: "No_user"
+  last_name: "Smith"
+  email: "no_user@email.com"
+
+fred:  
+  first_name: "Fred"
+  last_name: "Blogs"
+  email: "fred@email.com"
+
+no_first_name:
+  last_name: "Lastname"
+  email: "lastname@email.com"
+
+no_last_name:
+  first_name: "Firstname"
+  email: "firstname@email.com"
+
+double_firstname:
+  first_name: "Fred David"
+  last_name: "Bloggs"
+  email: "fred_blogs@email.com"
+
+double_lastname:
+  first_name: "Fred"
+  last_name: "Smith Jones"
+  email: "Fred1@email.com"
+
+double_barrelled_lastname:
+  first_name: "Fred"
+  last_name: "Smith-Jones"
+  email: "Fred2@email.com"
+
+name_with_umlaut:
+  first_name: "Bob"
+  last_name: "Müller"
+  email: "bob@email.com"
+
+name_with_non_umlaut:
+  first_name: "Alice"
+  last_name: "Graeter"
+  email: "alice@email.com"
+
+
+# ******** Fixtures below this point used with new Rails association mechanism - hence, no IDs defined ********
+
+
+person_for_owner_of_my_first_sop:
+  first_name: "OwnerOf"
+  last_name: "MyFirstSop"
+  email: "owner@sop.com"
+
+person_for_owner_of_fully_public_policy:
+  first_name: "OwnerOf"
+  last_name: "FullyPublicPolicy"
+  email: "ownerof_fullypublicpolicy@email.com"
+
+
+person_for_owner_of_download_for_all_sysmo_users_policy:
+  first_name: "OwnerOf"
+  last_name: "DownloadForAllSysmoUsersPolicy"
+  email: "ownerof_downloadforallsysmouserspolicy@email.com"
+
+
+person_for_owner_of_editing_for_all_sysmo_users_policy:
+  first_name: "OwnerOf"
+  last_name: "EditingForAllSysMOUsersPolicy"
+  email: "ownerof_editingforallsysmouserspolicy@email.com"
+
+
+person_for_owner_of_private_policy_using_custom_sharing:
+  first_name: "OwnerOf"
+  last_name: "PrivatePolicyUsingCustomSharing"
+  email: "ownerof_privatepolicyusingcustomsharing@email.com"
+
+
+random_userless_person:
+  first_name: "Random"
+  last_name: "Person"
+  email: "random@email.com"
+
+
+person_not_associated_with_any_projects:
+  first_name: "Free"
+  last_name: "Spirit"
+  email: "not@associated.com"
+
+
+person_to_associate_with_sops_owning_users:
+  first_name: "Person"
+  last_name: "Place_holder"
+  email: "person_place_holder@email.com"
+
+person_for_test_user_only_in_allowlist:
+  first_name: "TestAccessor"
+  last_name: "OnlyInAllowlist"
+  email: "testaccessor_onlyinallowlist@email.com"
+
+
+person_for_test_user_only_in_denylist:
+  first_name: "TestAccessor"
+  last_name: "OnlyInDenylist"
+  email: "testaccessor_onlyindenylist@email.com"
+
+
+person_for_sysmo_user_in_denylist:
+  first_name: "SysMO-User"
+  last_name: "InDenylist"
+  email: "sysmo-user_indenylist@email.com"
+
+
+person_for_sysmo_user_both_in_denylist_and_allowlist:
+  first_name: "SysMO-User"
+  last_name: "InAllowlistAndDenylist"
+  email: "sysmo-userinallowlistanddenylist@email.com"
+
+
+person_for_sysmo_user_who_wants_to_access_different_things:
+  first_name: "Registered-User"
+  last_name: "WantsToAccessManyThingsAndHasSomePermissions"
+  email: "registered-userwantstoaccessmanythingsandhassomepermissions@email.com"
+
+person_for_model_owner:
+  first_name: "Model"
+  last_name: "Owner"
+  email: "model_owner@email.com"
+
+person_for_datafile_owner:
+  first_name: "Datafile"
+  last_name: "Owner"
+  email: "data_file_owner@email.com"
+
+modeller_person:
+  first_name: "Modeller"
+  disciplines: modeller,experimentalist
+  email: "modeller@email.com"
+
+person_without_group:
+  first_name: "Lonely"
+  email: "lonely@email.com"
+
+person_without_user:
+  first_name: "Userless"
+  email: "userless@email.com"
+
+person_for_default_page:
+  first_name: "Fred"
+  last_name: "Aardvark"
+  email: "aadvark@email.com"
+
+person_for_pagination_order_test:
+  first_name: "Fred"
+  last_name: "Azbo"
+  email: "azbo@email.com"
+
+person_with_links_in_description:
+  first_name: "Spam"
+  last_name: "Bot"
+  email: "spambot@spam.com"
+  description: "Visit my websites! http://www.website.com, http://www.google.com"
+
+duplicate_1:
+  first_name: "I Am a"
+  last_name: "Duplicate"
+  email: "dup1@email.com"
+
+duplicate_2:
+  first_name: "I Am a"
+  last_name: "Duplicate"
+  email: "dup2@email.com"

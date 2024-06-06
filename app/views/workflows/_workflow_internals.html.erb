@@ -1,0 +1,75 @@
+<div class="workflow-internals">
+  <% if structure.inputs.any? %>
+    <h2>Inputs</h2>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover steps">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% structure.inputs.each do |input| %>
+          <tr>
+            <td class="id"><%= text_or_not_specified(input.nice_id, none_text: 'n/a') %></td>
+            <td class="name"><%= text_or_not_specified(input.name, none_text: 'n/a') %></td>
+            <td class="description"><%= text_or_not_specified(input.description, none_text: 'n/a') %></td>
+            <td class="type"><%= port_types(input) %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+  <% if structure.steps.any? %>
+    <h2>Steps</h2>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover steps">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% structure.steps.each do |step| %>
+          <tr>
+            <td class="id"><%= text_or_not_specified(step.nice_id, none_text: 'n/a') %></td>
+            <td class="name"><%= text_or_not_specified(step.name, none_text: 'n/a') %></td>
+            <td class="description"><%= text_or_not_specified(step.description, none_text: 'n/a') %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+  <% if structure.outputs.any? %>
+    <h2>Outputs</h2>
+    <div class="table-responsive">
+      <table class="table table-striped table-hover steps">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% structure.outputs.each do |output| %>
+          <tr>
+            <td class="id"><%= text_or_not_specified(output.nice_id, none_text: 'n/a') %></td>
+            <td class="name"><%= text_or_not_specified(output.name, none_text: 'n/a') %></td>
+            <td class="description"><%= text_or_not_specified(output.description, none_text: 'n/a') %></td>
+            <td class="type"><%= port_types(output) %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>

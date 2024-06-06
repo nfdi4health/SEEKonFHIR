@@ -1,0 +1,90 @@
+{
+  "data": {
+    "type": "assays",
+    "attributes": {
+      "title": "A Maximal experimental Assay",
+      "assay_class": {
+        "key": "EXP"
+      },
+      "assay_type": {
+        "uri": "http://jermontology.org/ontology/JERMOntology#Transcriptomics"
+      },
+      "technology_type": {
+        "uri": "http://jermontology.org/ontology/JERMOntology#RNA-Seq"
+      },
+      "other_creators": "Anonymous creator",
+      "description": "A Western Blot Assay",
+      "policy": {
+        "access": "download",
+        "permissions": [
+          {
+            "resource": {
+              "id": "293",
+              "type": "projects"
+            },
+            "access": "manage"
+          }
+        ]
+      },
+      "tags": [
+        "alan"
+      ]
+    },
+    "relationships": {
+      "study": {
+        "data": {
+          "id": "40",
+          "type": "studies"
+        }
+      },
+      "publications": {
+        "data": [
+          {
+            "id": "19",
+            "type": "publications"
+          }
+        ]
+      },
+      "organisms": {
+        "data": [
+          {
+            "id": "8",
+            "type": "organisms"
+          }
+        ]
+      },
+      "sops": {
+        "data": [
+          {
+            "id": "17",
+            "type": "sops"
+          }
+        ]
+      },
+      "data_files": {
+        "data": [
+          {
+            "id": "13",
+            "type": "data_files"
+          }
+        ]
+      },
+      "documents": {
+        "data": [
+          {
+            "id": "27",
+            "type": "documents"
+          }
+        ]
+      },
+      "creators": {
+        "data": [
+          {
+            "id": "283",
+            "type": "people"
+          }
+        ]
+      }
+    }
+  }
+}

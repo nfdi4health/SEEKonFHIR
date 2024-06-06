@@ -1,0 +1,91 @@
+
+<%= javascript_include_tag "tablesorter/jquery.tablesorter.js"%>
+<%= stylesheet_link_tag "tablesorter/blue/tablesorter_blue.css" %>
+
+<%
+  authorised_types=Seek::Stats::ContentStats::TYPES_FOR_STATS
+  non_downloadable=[Investigation,Study,Assay]
+  na_tag = content_tag(:span,"--",class:'none_text')
+  #So we don't have to run lengthy authorization a second time when calculating total stats
+
+  total_visible = { models: [], sops: [], data_files: [], assays: [], studies: [], investigations: [], presentations: [] }
+  total_accessible = { models: [], sops: [], data_files: [], assays: [], studies: [], investigations: [], presentations: [] }
+  total_publicly_visible = { models: [], sops: [], data_files: [], assays: [], studies: [], investigations: [], presentations: [] }
+  total_publicly_accessible = { models: [], sops: [], data_files: [], assays: [], studies: [], investigations: [], presentations: [] }
+%>
+
+<h3>Content statistics</h3>
+
+For authorised assets the numbers are split as <em>total</em> / <em>visible</em> / <em>accessible</em> / <em>publicly visible</em> / <em>publicly accessible</em>
+<table id="content_stats_table" class="tablesorter"> 
+  <thead>
+  <tr>
+    <th><%= t('project') %></th>
+    <th>People (Registered)</th>
+    <% authorised_types.each do |type| %>
+        <th><%= internationalized_resource_name(type.name) -%></th>
+    <% end %>
+
+    <th>Publications</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% stats.each do |stat| %>
+  <tr>
+    <td><%= link_to stat.project.title, stat.project -%></td>
+    <% registered_people = stat.registered_people.count %>
+    <td><%= stat.people.count -%> (<%= registered_people -%>)</td>
+    <% authorised_types.each do |type| %>
+        <% type_sym = type.name.underscore.pluralize.to_sym
+            vis = stat.send("visible_#{type_sym}")
+            acc = stat.send("accessible_#{type_sym}")
+            pub_vis = stat.send("publicly_visible_#{type_sym}")
+            pub_acc = stat.send("publicly_accessible_#{type_sym}")
+            total = stat.send("#{type_sym}").count
+            total_visible[type_sym] |= vis
+            total_accessible[type_sym] |= acc
+            total_publicly_visible[type_sym] |= pub_vis
+            total_publicly_accessible[type_sym] |= pub_acc
+            display_accessible_count = non_downloadable.include?(type) ? na_tag : acc.count
+            display_pub_accessible_count = non_downloadable.include?(type) ? na_tag : pub_acc.count
+        -%>
+        <td><%= "#{total}/#{vis.count}/#{display_accessible_count}/#{pub_vis.count}/#{display_pub_accessible_count}".html_safe -%></td>
+    <% end -%>
+
+    <td><%= stat.publications.count -%> </td>
+  </tr>
+  <% end %>
+  <tr style="background-color: #DEF">
+    <td><b>Overall</b></td>
+    <td><%= Person.count -%> (<%= User.where('person_id IS NOT NULL').count -%>)<em>*</em></td>
+    <% authorised_types.each do |type| %>
+        <%  type_sym = type.name.underscore.pluralize.to_sym
+            total=type.count
+            total_vis = total_visible[type_sym].count
+            total_acc = total_accessible[type_sym].count
+            total_pub_vis = total_publicly_visible[type_sym].count
+            total_pub_acc = total_publicly_accessible[type_sym].count
+            display_total_accessible_count = non_downloadable.include?(type) ? na_tag : total_acc
+            display_total_pub_accessible_count = non_downloadable.include?(type) ? na_tag : total_pub_acc
+        %>
+        <td><%= "#{total}/#{total_vis}/#{display_total_accessible_count}/#{total_pub_vis}/#{display_total_pub_accessible_count}".html_safe -%></td>
+    <% end -%>
+
+    <td><%= Publication.count -%></td>
+  </tr>
+  </tbody>
+</table>
+<hr/>
+<em>* Note that this is the overall number of people, and registered users. This may not necessarily by the sum of the values above due to people being in multiple <%= t('project').pluralize %>.</em>
+
+<script type="text/javascript">
+  $j("#content_stats_table").tablesorter({
+    //headers: {
+    // assign the first column (we start counting zero)
+    //      0: {
+    // disable it by setting the property sorter to false
+    //        sorter: false
+    //  }
+    // }
+  });
+</script>

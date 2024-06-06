@@ -1,0 +1,11 @@
+AllCops:
+  SuggestExtensions: false
+  Exclude:
+    - test/unit/assay_test.rb
+
+Layout/LineLength:
+  Max: 120
+
+# Don't enforce frozen string literals
+Style/FrozenStringLiteralComment:
+  Enabled: false

@@ -1,0 +1,146 @@
+<%# this partial expects the following parameters to be set: -%>
+
+<%# - selected_project_ids - IDs of the projects the resource is currently associated with; skip this parameter for a "new" resource -%>
+<%# - disable_project_select - selection should only be available on 'new' action, but not on 'edit'; this parameter has a default of "false" -%>
+
+<%
+  allow_nil ||= false
+  allow_all ||= false
+  resource ||= nil
+
+  selected_projects = resource ? resource.projects : []
+  if allow_all
+    possible_projects = Project.all
+  else
+    possible_projects = []
+    possible_projects |= User.current_user.person.current_projects
+    if resource
+      possible_projects |= resource.projects
+      possible_projects |= resource.contributor.current_projects if resource.respond_to?(:contributor) && resource.contributor
+    end
+  end
+
+  possible_projects = possible_projects - selected_projects
+
+  possible_projects_json, selected_projects_json = [possible_projects, selected_projects].map do |projects|
+    projects.to_a.map { |p| { id: p.id, title: p.title }}.to_json
+  end
+
+  field_name = "#{resource.class.name.underscore}[project_ids][]"
+  title = t('project').pluralize
+  title += '<span class="required">*</span>'.html_safe unless allow_nil
+
+  object_type_text = text_for_resource(resource)
+%>
+
+<%= folding_panel(title, false, id: "add_projects_form",
+                  help_text: "Here you can associate the #{object_type_text} with specific #{t('project').downcase.pluralize}.") do %>
+    <p class="help-block">
+      The following <%= t('project').downcase.pluralize -%> are associated with this <%= object_type_text -%>:
+    </p>
+    <div id="project-selector">
+      <%# The following line ensures that the parameter is always sent, even when nothing is selected.
+        It adds a "" as the first item in the array. So if items 1,2, and 3 are selected the
+        value of the parameter will be ["","1","2","3"]. This is compatible with the rails
+        association association_ids= methods, which reject 'blank' values automatically.%>
+      <%= hidden_field_tag field_name, '' %>
+      <div class="box_editing_inner">
+        <ul class="associations-list">
+          <span v-if="selected.length == 0" class="none_text">None</span>
+          <li class="association-list-item" v-for="(project, index) in selected">
+            <span :title="project.title">{{ project.title }}</span>
+            <a class="remove-association clickable" @click="remove(project, index)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </a>
+            <input type="hidden" name="<%= field_name -%>" v-model="project.id"/>
+          </li>
+        </ul>
+      </div>
+      <div class="association_step">
+        <div class="form-group">
+          <select autocomplete="off" class="form-control" id="projects-selector-select">
+            <option selected="selected">Select a <%= t('project').downcase -%>...</option>
+            <option v-for="project in sortedPossibilities" :value="project.id">{{ project.title }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+<% end %>
+<%= content_tag :script, possible_projects_json.html_safe, type: 'application/json', id: 'project-selector-possibilities-json' %>
+<%= content_tag :script, selected_projects_json.html_safe, type: 'application/json', id: 'project-selector-selected-json' %>
+<%= content_tag :script, project_policies_json(possible_projects | selected_projects), type: 'application/json', id: 'project-default-policies-json' %>
+<%= content_tag :script, enable_auto_project_license? ? project_licenses_json : '{}', type: 'application/json', id: 'project-default-licenses-json' %>
+
+<script id="project-selector-script">
+  Sharing.defaultPolicies = JSON.parse($j('#project-default-policies-json').text());
+  Sharing.defaultLicenses = JSON.parse($j('#project-default-licenses-json').text());
+
+  Sharing.projectsSelector = new Vue({
+    el: '#project-selector',
+    data: {
+      possibilities: JSON.parse($j('#project-selector-possibilities-json').text()),
+      selected: JSON.parse($j('#project-selector-selected-json').text())
+    },
+    computed: {
+        sortedPossibilities: function () {
+            return this.possibilities.sort(function (a, b) {
+                return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+            });
+        }
+    },
+    methods: {
+      remove: function (project, index) {
+        this.possibilities.push(project);
+        this.selected.splice(index, 1);
+        Sharing.removePermissionForProject(project);
+      },
+      add: function (projectId, skipPrompt) {
+        for (var i = 0; i < this.possibilities.length; i++) {
+          var project = this.possibilities[i];
+          if (project.id == projectId) {
+            this.selected.push(project);
+            Sharing.defaultPolicyPrompt(project, skipPrompt);
+
+            // Select the default license
+            if (this.selected.length === 1 && Sharing.defaultLicenses[project.id]) {
+                var licenseSelect = $j('#license-select');
+                if (licenseSelect.length && licenseSelect.data('canOverwrite') &&
+                    $j('option[value="'+Sharing.defaultLicenses[project.id]+'"]', licenseSelect).length) {
+                    licenseSelect.val(Sharing.defaultLicenses[project.id]).change();
+                }
+            }
+            this.possibilities.splice(i, 1);
+            return false;
+          }
+        }
+      }
+    }
+  });
+
+  $j(document).ready(function () {
+    // Auto select projects from params[:project_ids] or params[resource][:project_ids] if this is a new object
+    <% if resource && resource.new_record? %>
+      <% if params[:project_ids] %>
+        <% params[:project_ids].each do |project_id| %>
+          Sharing.projectsSelector.add(<%= project_id %>, true);
+        <% end %>
+      <% end %>
+      <% if params[controller_name.singularize] && params[controller_name.singularize][:project_ids] %>
+        <% params[controller_name.singularize][:project_ids].each do |project_id| %>
+          Sharing.projectsSelector.add(<%= project_id %>, true);
+        <% end %>
+      <% end %>
+    <% end %>
+    // Auto select project if there is only one
+    if (Sharing.projectsSelector.possibilities.length === 1 &&
+        Sharing.projectsSelector.selected.length === 0) {
+      Sharing.projectsSelector.add(Sharing.projectsSelector.possibilities[0].id, true);
+    }
+    $j('#projects-selector-select').change(function () {
+      if ($j(this).val()) {
+        Sharing.projectsSelector.add($j(this).val());
+        $j(this).prop('selectedIndex', 0); // Reset the select
+      }
+    })
+  });
+</script>

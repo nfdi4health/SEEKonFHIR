@@ -1,0 +1,123 @@
+{
+  "data": {
+    "id": "1296",
+    "type": "programmes",
+    "attributes": {
+      "discussion_links": [
+
+      ],
+      "avatar": null,
+      "title": "Changed title",
+      "description": "A very exciting programme patched!",
+      "web_page": "http://www.synbiochem.co.uk",
+      "funding_details": "Someone ELSE is funding this for me",
+      "funding_codes": [
+        "AVH"
+      ]
+    },
+    "relationships": {
+      "administrators": {
+        "data": [
+          {
+            "id": "5588",
+            "type": "people"
+          }
+        ]
+      },
+      "people": {
+        "data": [
+          {
+            "id": "5588",
+            "type": "people"
+          }
+        ]
+      },
+      "projects": {
+        "data": [
+          {
+            "id": "7653",
+            "type": "projects"
+          }
+        ]
+      },
+      "institutions": {
+        "data": [
+
+        ]
+      },
+      "investigations": {
+        "data": [
+
+        ]
+      },
+      "studies": {
+        "data": [
+
+        ]
+      },
+      "assays": {
+        "data": [
+
+        ]
+      },
+      "data_files": {
+        "data": [
+
+        ]
+      },
+      "models": {
+        "data": [
+
+        ]
+      },
+      "sops": {
+        "data": [
+
+        ]
+      },
+      "publications": {
+        "data": [
+
+        ]
+      },
+      "presentations": {
+        "data": [
+
+        ]
+      },
+      "events": {
+        "data": [
+
+        ]
+      },
+      "documents": {
+        "data": [
+
+        ]
+      },
+      "workflows": {
+        "data": [
+
+        ]
+      },
+      "collections": {
+        "data": [
+
+        ]
+      }
+    },
+    "links": {
+      "self": "/programmes/1296"
+    },
+    "meta": {
+      "created": "2023-03-28T14:57:01.000Z",
+      "modified": "2023-03-28T14:57:01.000Z",
+      "api_version": "0.3",
+      "base_url": "http://localhost:3000",
+      "uuid": "b8016460-afa6-013b-c76a-2c91a17e7bb9"
+    }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

@@ -1,0 +1,129 @@
+@import 'variables';
+@import 'mixins';
+
+ul.publishing_options {
+    padding-left: 1em;
+}
+
+ul.publishing_options li.type_and_title {
+    font-weight:bolder;
+}
+
+ul.publishing_options li.type_and_title img.icon_visibility {
+    margin-left:2em;
+}
+
+ul.publishing_options li.secondary {
+
+}
+
+span.approve {
+    color: limegreen;
+    font-weight: bolder;
+}
+
+span.reject {
+    color: red;
+    font-weight: bolder;
+}
+
+span.decide_later {
+    font-weight: bolder;
+}
+
+
+ul.item_waiting_for_approval {
+    padding-left: 1em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+ul.item_waiting_for_approval li.type_and_title {
+    font-weight: bolder;
+}
+
+
+img.icon_visibility {
+    margin-left: 2em;
+}
+
+ul.item_for_decision {
+    padding-left: 1em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.publishing_options {
+  padding: 0.5em 1em;
+
+  &.not-manageable {
+    border-left-color: $btn-warning-bg;
+  }
+
+  &.not-visible {
+    border-left-color: $btn-danger-bg;
+  }
+
+  &.already-published {
+    border-left-color: $gray-light;
+  }
+}
+
+ul.decided_item {
+  padding-left: 1em;
+}
+
+ul.decided_item li.type_and_title {
+  font-weight: bolder;
+  margin-top: 20px;
+}
+
+.waiting_approval_items {
+  padding: 0.5em 15px;
+  margin: 0.3em 0em;
+}
+
+.rejected_items {
+  padding: 0.5em 15px;
+  margin: 0.3em 0em;
+}
+
+.batch-selection-buttons {
+  margin-bottom: 1em;
+  display: flex;
+  gap: 1em;
+}
+
+.batch-selection-asset-row {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  .visibility_icon {
+    margin: 0;
+  }
+}
+
+.batch-selection-permission-list,
+.batch-selection-managed-by-list,
+.batch-selection-children {
+  margin-left: 3em;
+}
+
+.batch-selection-check-btn {
+  input {
+    margin: 0;
+    vertical-align: middle;
+  }
+}
+
+.batch-selection-collapse-toggle {
+  cursor: pointer;
+
+  .glyphicon-menu-down { display: none; };
+  .glyphicon-menu-right { display: inline; };
+
+  &.open {
+    .glyphicon-menu-down { display: inline; };
+    .glyphicon-menu-right { display: none; };
+  }
+}

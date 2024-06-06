@@ -1,0 +1,28 @@
+function GenotypeOrPhenotypeTable(table, addBtn, existingJson, template) {
+    var tableBody = $j('tbody', table);
+    var objectName = table.data('objectName');
+    table.on('click', '.remove-association', function () {
+        var row = $j(this).parents('.subtype-row');
+        var destroyToggle = $j('input[data-role="destroy"]', row);
+        if (destroyToggle.length) {
+            destroyToggle.val('1');
+            row.hide();
+        } else {
+            row.remove();
+        }
+    });
+
+    existingJson.forEach(function (i) {
+        tableBody.append(HandlebarsTemplates[template](i));
+    });
+
+    addBtn.click(function () {
+        tableBody.append(HandlebarsTemplates[template]({
+            objectName: objectName,
+            index: new Date().getTime(),
+            item: {}
+        }));
+
+        return false;
+    });
+}

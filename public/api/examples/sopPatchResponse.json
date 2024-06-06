@@ -1,0 +1,154 @@
+{
+  "data": {
+    "id": "16",
+    "type": "sops",
+    "attributes": {
+      "policy": {
+        "access": "no_access",
+        "permissions": [
+          {
+            "resource": {
+              "id": "218",
+              "type": "projects"
+            },
+            "access": "edit"
+          }
+        ]
+      },
+      "discussion_links": [
+
+      ],
+      "title": "A Maximally Patched SOP",
+      "license": "CC-BY-4.0",
+      "description": "Protocol",
+      "latest_version": 1,
+      "tags": [
+        "tag1",
+        "tag2",
+        "tag3"
+      ],
+      "versions": [
+        {
+          "version": 1,
+          "revision_comments": null,
+          "url": "http://localhost:3000/sops/16?version=1",
+          "doi": null
+        }
+      ],
+      "version": 1,
+      "revision_comments": null,
+      "created_at": "2022-06-07T14:12:53.000Z",
+      "updated_at": "2022-06-07T14:12:53.000Z",
+      "doi": null,
+      "content_blobs": [
+        {
+          "original_filename": "sop.pdf",
+          "url": null,
+          "md5sum": "63f964868d572e9de7e5a61b2dc27cfa",
+          "sha1sum": "77197c545a4465cedfc6d75258b7c2765869010c",
+          "content_type": "application/pdf",
+          "link": "http://localhost:3000/sops/16/content_blobs/89",
+          "size": 9
+        }
+      ],
+      "creators": [
+        {
+          "profile": "/people/205",
+          "family_name": "Last",
+          "given_name": "Person167",
+          "affiliation": "An Institution: 207",
+          "orcid": null
+        }
+      ],
+      "other_creators": "John Smith, Jane Smith"
+    },
+    "relationships": {
+      "creators": {
+        "data": [
+          {
+            "id": "205",
+            "type": "people"
+          }
+        ]
+      },
+      "submitter": {
+        "data": [
+          {
+            "id": "204",
+            "type": "people"
+          }
+        ]
+      },
+      "people": {
+        "data": [
+          {
+            "id": "204",
+            "type": "people"
+          },
+          {
+            "id": "205",
+            "type": "people"
+          }
+        ]
+      },
+      "projects": {
+        "data": [
+          {
+            "id": "218",
+            "type": "projects"
+          }
+        ]
+      },
+      "investigations": {
+        "data": [
+          {
+            "id": "32",
+            "type": "investigations"
+          }
+        ]
+      },
+      "studies": {
+        "data": [
+          {
+            "id": "30",
+            "type": "studies"
+          }
+        ]
+      },
+      "assays": {
+        "data": [
+          {
+            "id": "28",
+            "type": "assays"
+          }
+        ]
+      },
+      "publications": {
+        "data": [
+
+        ]
+      },
+      "workflows": {
+        "data": [
+          {
+            "id": "8",
+            "type": "workflows"
+          }
+        ]
+      }
+    },
+    "links": {
+      "self": "/sops/16?version=1"
+    },
+    "meta": {
+      "created": "2022-06-07T14:12:53.000Z",
+      "modified": "2022-06-07T14:12:53.000Z",
+      "api_version": "0.3",
+      "base_url": "http://localhost:3000",
+      "uuid": "d838c140-c899-013a-0f7e-0a81884ed284"
+    }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

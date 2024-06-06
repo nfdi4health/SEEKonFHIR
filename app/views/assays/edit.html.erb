@@ -1,0 +1,8 @@
+<h1><%=  @assay.is_modelling? ? "Editing #{t('assays.modelling_analysis')}" : "Editing #{t('assays.experimental_assay')}" -%></h1>
+
+<div class="asset_form">
+  <%= suggested_type_modal_boxes %>
+  <%= form_for @assay do |f| %>
+    <%= render :partial => "form", :locals => { :f => f, :action=>:edit } -%>
+  <% end -%>
+</div>

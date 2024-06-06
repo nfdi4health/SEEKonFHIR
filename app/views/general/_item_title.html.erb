@@ -1,0 +1,75 @@
+<%
+hide_title ||= 0
+version ||= params[:version]
+display_item = item.find_version(version) if version
+avatar = favouritable_icon(version ? display_item : item, 120)
+title_prefix||=""
+title_postfix||=""
+title ||= item.title || ""
+title = "#{h(title_prefix) + h(title) + h(title_postfix)}".html_safe
+buttons_partial ||= nil
+col_width = buttons_partial.nil? && !content_for?(:buttons) ? 12 : 6
+gatekeeper_status_bar = item.is_asset? && item.can_manage? && (item.is_waiting_approval? || item.is_rejected?)
+%>
+
+<div class="row contribution-header">
+  <div class="col-md-<%= col_width -%>">
+    <% unless avatar.blank? -%>
+      <%= avatar -%>
+    <% end %>
+    <h1>
+      <%= title -%>
+      <% if version %>
+          <% visible_versions = item.visible_versions %>
+          <% if visible_versions.length > 1 %>
+              <div class="version">
+                <a class="dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                  <%= display_item.name -%> <%= item.describe_version(display_item.version) -%><span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <% visible_versions.reverse.each do |v| %>
+                      <li>
+                        <%= link_to({:version => v.version}, :method => request.request_method) do -%>
+                            <%= v.name %> <%= item.describe_version(v.version) -%><br/>
+                        <% end %>
+                      </li>
+                  <% end %>
+                </ul>
+              </div>
+          <% else %>
+              <div class="version">Version <%= version -%></div>
+          <% end %>
+      <% end %>
+    </h1>
+    <% if @action=="show" && item.respond_to?(:private?) && item.respond_to?(:public?) && item.try(:can_manage?) %>
+        <div class="text-center">
+          <%= sharing_text(item) %>
+        </div>
+    <% end %>
+  </div>
+  <% if buttons_partial %>
+  <div class="col-md-6 text-right-md" id="buttons">
+    <%= render :partial => buttons_partial, :locals => {:item => item, :version => version} -%>
+  </div>
+  <% elsif content_for? :buttons %>
+  <div class="col-md-6 text-right-md" id="buttons">
+    <%= content_for :buttons -%>
+  </div>
+  <% end %>
+</div>
+<% if gatekeeper_status_bar %>
+  <div class="row" id=gatekeeper_status>
+    <div class="col-md-7"> </div>
+    <div class="col-md-5 text-right-md" id="gatekeeper-status-col">
+      <% if item.is_waiting_approval? %>
+        <div class="alert alert-warning" id="gatekeeper_warning">
+          This item is <b>waiting for the gatekeeper's approval</b> to be published.
+        </div>
+      <% else %>
+        <div class="alert alert-danger" id="gatekeeper_warning">
+          The gatekeeper has <b>rejected</b> the request to publish this item.
+        </div>
+    <% end %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,136 @@
+<% cancel_path ||= workflows_path %>
+
+<div class="row">
+  <div class="col-sm-3 col-md-2">
+    <ul class="nav nav-pills nav-stacked" role="tablist">
+      <li class="active" role="presentation">
+        <a href="#new-ro-crate" aria-controls="new-ro-crate" role="tab" data-toggle="tab">
+          <%= t('workflows.register.files') %>
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#git-repo" aria-controls="git-repo" role="tab" data-toggle="tab">
+          <%= t('workflows.register.git') %>
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#existing-ro-crate" aria-controls="existing-ro-crate" role="tab" data-toggle="tab">
+          <%= t('workflows.register.ro_crate') %>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-sm-9 col-md-10">
+    <div class="tab-content">
+      <div id="new-ro-crate" role="tabpanel" class="tab-pane active">
+        <%= form_tag({ action: :create_from_files, anchor: 'new-ro-crate' }, multipart: true) do -%>
+          <%= forward_params(:workflow) %>
+          <%= error_messages_for :workflow -%>
+          <%= error_messages_for :crate_builder, header_message: "Could not build Workflow RO-Crate" -%>
+
+          <%= panel(nil, id: 'main-workflow-panel') do %>
+            <div class="form-group">
+              <label class="required">Workflow</label>
+              <p class="help-block">The main executable workflow.</p>
+              <%= render partial: 'assets/upload', locals: { field_name: 'ro_crate[main_workflow]', param: params.dig(:ro_crate, :main_workflow) } -%>
+            </div>
+
+            <div class="form-group">
+              <%= render partial: 'workflows/workflow_class_form', locals: { selected: @workflow.workflow_class_id } %>
+              <p class="help-block">The type of the above workflow.</p>
+            </div>
+
+            <script>
+                // Auto-select workflow class based on file extension.
+                $j(document).ready(function () {
+                    var selectWorkflowClass = function (filename) {
+                        var parts = filename.split('.');
+                        var ext = parts[parts.length - 1];
+                        $j('#workflow_class_id option').each(function () {
+                            var o = $j(this);
+                            if (o.data('fileExtensions') && o.data('fileExtensions').includes(ext)) {
+                                $j('#workflow_class_id').val(o.val());
+                            }
+                        });
+                    }
+                    $j('#main-workflow-panel [data-role="seek-url-checker"]').on('urlChecked', function () {
+                        setTimeout(function () {
+                            selectWorkflowClass($j('#ro_crate_main_workflow_original_filename').val());
+                        }, 100);
+                    });
+                    $j('#ro_crate_main_workflow_data').change(function () {
+                        selectWorkflowClass($j(this).val());
+                    });
+                });
+            </script>
+          <% end %>
+
+          <%= panel do %>
+            <div class="form-group">
+              <label>Abstract CWL</label>
+              <p class="help-block">(Optional) The abstract CWL that describes the workflow above.</p>
+              <%= render partial: 'assets/upload', locals: { field_name: 'ro_crate[abstract_cwl]', param: params.dig(:ro_crate, :abstract_cwl), file_field_opts: { accept: '.cwl,.yaml,.yml,.json,.jsonld' } } -%>
+            </div>
+          <% end %>
+
+          <%= panel do %>
+            <div class="form-group">
+              <label>Diagram</label>
+              <p class="help-block">(Optional) A diagram that illustrates the main workflow.</p>
+              <%= render partial: 'assets/upload', locals: { field_name: 'ro_crate[diagram]', param: params.dig(:ro_crate, :diagram), file_field_opts: { accept: 'image/*' } } -%>
+            </div>
+          <% end %>
+
+          <div>
+            <%= create_button class: 'btn btn-primary'-%>
+            or <%= cancel_button(cancel_path) -%>
+          </div>
+        <% end -%>
+      </div>
+
+      <div id="git-repo" role="tabpanel" class="tab-pane">
+        <%= form_tag({ action: :create_from_git, anchor: 'git-repo' }) do -%>
+          <%= forward_params(:workflow) %>
+          <%= error_messages_for :workflow -%>
+
+          <%= panel do %>
+            <div class="form-group">
+              <label class="required">URL</label>
+              <p class="help-block">URL to the git repository. Should end in ".git".</p>
+              <%= text_field_tag 'workflow[git_version_attributes][remote]', nil, placeholder: 'https://github.com/example/repository.git', class: 'form-control' -%>
+            </div>
+          <% end %>
+
+          <div>
+            <%= create_button class: 'btn btn-primary'-%>
+            or <%= cancel_button(cancel_path) -%>
+          </div>
+        <% end -%>
+      </div>
+
+      <div id="existing-ro-crate" role="tabpanel" class="tab-pane">
+        <%= form_tag({ action: :create_from_ro_crate, anchor: 'existing-ro-crate' }, multipart: true) do -%>
+          <%= forward_params(:workflow) %>
+          <%= error_messages_for :workflow -%>
+          <%= error_messages_for :crate_extractor -%>
+
+          <%= panel do %>
+            <div class="form-group">
+              <label class="required">Workflow RO-Crate</label>
+              <p class="help-block">The zipped <a href="https://github.com/workflowhub-eu/about/wiki/Workflow-RO-Crate" target="_blank">Workflow RO-Crate</a>.</p>
+              <%= render partial: 'assets/upload', locals: { field_name: 'ro_crate', param: params[:ro_crate], file_field_opts: { accept: '.zip' } } -%>
+            </div>
+          <% end %>
+
+          <div>
+            <%= create_button class: 'btn btn-primary'-%>
+            or <%= cancel_button(cancel_path) -%>
+          </div>
+        <% end -%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render partial: 'workflows/workflow_class_modal' %>

@@ -1,0 +1,62 @@
+<%# This partial expects 3 parameters to be defined: -%>
+<%# - resource - instance of resource for which the attributions are displayed -%>
+<%# - attributed_to - *pre-authorized* collection of items to which the resource is attributed -%>
+<%# - truncate_to - length of the texts after which truncation is activated -%>
+
+<% main_list_section_length = 1 -%>
+
+<%= panel('Attributions', :help_text => "What other assets have influenced this one?") do %>
+  <% unless attributed_to.blank? -%>
+    <ul class="list">
+      <% attributed_to.first(main_list_section_length).each do |item| -%>
+        <% if item -%>
+          <% item_type = item.class.name -%>
+          <% by_text = item.contributor.nil? ? "" : " by #{h(item.contributor.name)}" %>
+          <% tooltip_txt = "<b>#{item_type.humanize}:</b> \"#{h(item.title)}\"#{by_text}" -%>
+          <%= list_item_with_icon(item_type.underscore, item, item.title, truncate_to, tooltip_txt, 34) -%>
+        <% else -%>
+          <li><span class="none_text">Private item</span></li>
+        <% end -%>
+      <% end  %>
+    </ul>
+
+    <%# if a collection has more than "main_list_section_length" items an "expand" link is provided which opens up the rest of the items -%>
+    <% if attributed_to.length > main_list_section_length -%>
+      <%= link_to(("More " + image('expand')).html_safe, '#', id: 'more_link_attributions', class: 'pull-right')-%>
+
+      <div style="display: none;" id="more_items_attributions">
+        <ul class="list">
+          <% attributed_to[main_list_section_length..(attributed_to.length-1)].each do |item| -%>
+            <% if item -%>
+              <%= list_item_with_icon(item.class.name.underscore, item, item.title, truncate_to, nil, 34) -%>
+            <% else -%>
+              <li><span class="none_text">Private item</span></li>
+            <% end -%>
+          <% end -%>
+        </ul>
+
+        <%= link_to(("Less " + image('collapse')).html_safe, '#', id: 'less_link_attributions', style: 'display: none', class: 'pull-right')-%>
+      </div>
+    <% end -%>
+  <% else -%>
+    <p class="none_text">None</p>
+  <% end %>
+<% end %>
+
+<script>
+    $j('#more_link_attributions').click(function () {
+        $j('#more_items_attributions').show();
+        $j('#more_link_attributions').hide();
+        $j('#less_link_attributions').show();
+
+        return false;
+    });
+
+    $j('#less_link_attributions').click(function () {
+        $j('#more_items_attributions').hide();
+        $j('#more_link_attributions').show();
+        $j('#less_link_attributions').hide();
+
+        return false;
+    });
+</script>

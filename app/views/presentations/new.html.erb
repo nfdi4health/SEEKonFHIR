@@ -1,0 +1,46 @@
+<h1>New <%= t('presentation') %></h1>
+
+<%= index_and_new_help_icon controller_name %>
+
+<%= form_tag({:action => :create}, :multipart => true) do -%>
+    <div class="asset_form">
+      <%= error_messages_for :presentation -%>
+
+      <%= render :partial=>"assets/upload_box",:locals=>{:resource=>@presentation} -%>
+
+      <div class="form-group">
+        <label class="required">Title</label>
+        <% presentation_title_value = (params[:presentation].blank? || params[:presentation][:title].blank?) ? nil : params[:presentation][:title] -%>
+        <%= text_field_tag "presentation[title]", presentation_title_value, :class=>"form-control" -%>
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <% presentation_description_value = (params[:presentation].blank? || params[:presentation][:description].blank?) ? nil : params[:presentation][:description] -%>
+        <%= text_area_tag "presentation[description]", presentation_description_value,:class=>"form-control rich-text-edit" -%>
+      </div>
+
+      <%= fields_for(@presentation) do |presentation_fields| %>
+        <%= render partial: 'extended_metadata/extended_metadata_type_selection', locals: { f: presentation_fields, resource: @presentation } %>
+        <%= render partial: 'extended_metadata/extended_metadata_attribute_input', locals: { f: presentation_fields, resource: @presentation } %>
+      <% end %>
+
+      <%= render :partial => "projects/project_selector", :locals => { :resource => @presentation } -%>
+
+      <%= render :partial => 'assets/license_selector', :locals => { :resource => @presentation } %>
+
+      <%= render :partial=> "assets/discussion_links_form", :locals=>{:resource=>@presentation} -%>
+
+      <%= fields_for(@presentation) {|f|  f.hidden_field :parent_name } -%>
+
+      <%= fields_for(@presentation) {|f| render :partial=>"assets/asset_form_bottom", :locals=> {:f => f}} -%>
+
+      <% if Seek::Config.events_enabled %>
+        <%= fancy_multiselect @presentation, :events, { other_projects_checkbox: true, sort_by: :start_date } %>
+      <% end %>
+
+      <%= fancy_multiselect @presentation, :workflows, :other_projects_checkbox=>true if Seek::Config.workflows_enabled %>
+
+      <%= form_submit_buttons(@presentation) %>
+    </div>
+<% end -%>

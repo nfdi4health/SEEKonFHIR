@@ -1,0 +1,195 @@
+{
+  "data": {
+    "id": "1022257417",
+    "type": "projects",
+    "attributes": {
+      "discussion_links": [
+
+      ],
+      "avatar": null,
+      "title": "Updated Project",
+      "description": "with a new description!",
+      "web_page": "http://www.taverna.org.uk",
+      "wiki_page": "http://www.mygrid.org.uk",
+      "default_license": "Other (Open)",
+      "start_date": null,
+      "end_date": null,
+      "default_policy": {
+        "access": "no_access",
+        "permissions": [
+          {
+            "resource": {
+              "id": "1039992753",
+              "type": "people"
+            },
+            "access": "manage"
+          },
+          {
+            "resource": {
+              "id": "1022257417",
+              "type": "projects"
+            },
+            "access": "download"
+          },
+          {
+            "resource": {
+              "id": "980197315",
+              "type": "institutions"
+            },
+            "access": "view"
+          }
+        ]
+      },
+      "members": [
+
+      ],
+      "use_default_policy": false,
+      "topic_annotations": [
+        {
+          "label": "Biomedical science",
+          "identifier": "http://edamontology.org/topic_3344"
+        },
+        {
+          "label": "Chemistry",
+          "identifier": "http://edamontology.org/topic_3314"
+        }
+      ]
+    },
+    "relationships": {
+      "project_administrators": {
+        "data": [
+
+        ]
+      },
+      "pals": {
+        "data": [
+
+        ]
+      },
+      "asset_housekeepers": {
+        "data": [
+
+        ]
+      },
+      "asset_gatekeepers": {
+        "data": [
+
+        ]
+      },
+      "organisms": {
+        "data": [
+          {
+            "id": "627234431",
+            "type": "organisms"
+          }
+        ]
+      },
+      "human_diseases": {
+        "data": [
+
+        ]
+      },
+      "people": {
+        "data": [
+
+        ]
+      },
+      "institutions": {
+        "data": [
+
+        ]
+      },
+      "programmes": {
+        "data": [
+          {
+            "id": "156",
+            "type": "programmes"
+          }
+        ]
+      },
+      "investigations": {
+        "data": [
+
+        ]
+      },
+      "studies": {
+        "data": [
+
+        ]
+      },
+      "assays": {
+        "data": [
+
+        ]
+      },
+      "data_files": {
+        "data": [
+
+        ]
+      },
+      "file_templates": {
+        "data": [
+
+        ]
+      },
+      "placeholders": {
+        "data": [
+
+        ]
+      },
+      "models": {
+        "data": [
+
+        ]
+      },
+      "sops": {
+        "data": [
+
+        ]
+      },
+      "publications": {
+        "data": [
+
+        ]
+      },
+      "presentations": {
+        "data": [
+
+        ]
+      },
+      "events": {
+        "data": [
+
+        ]
+      },
+      "documents": {
+        "data": [
+
+        ]
+      },
+      "workflows": {
+        "data": [
+
+        ]
+      },
+      "collections": {
+        "data": [
+
+        ]
+      }
+    },
+    "links": {
+      "self": "/projects/1022257417"
+    },
+    "meta": {
+      "created": "2022-10-26T11:45:28.000Z",
+      "modified": "2022-10-26T11:45:28.000Z",
+      "api_version": "0.3",
+      "base_url": "http://localhost:3000",
+      "uuid": "9ca85d90-3751-013b-356e-000c29a94011"
+    }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

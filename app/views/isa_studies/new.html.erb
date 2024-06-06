@@ -1,0 +1,17 @@
+<% if Investigation.authorized_for('view').none? %>
+  <%= button_link_to("New #{t('investigation')}", 'arrow_right', new_investigation_path) -%>
+<% else %>
+  <span id='modal-dialogues'>
+      <%= sample_controlled_vocab_model_dialog('cv-modal') %>
+  </span>
+
+  <h1>New <%=t('isa_study')%></h1>
+
+  <%= render :partial => "templates/template_modal" -%>
+
+  <div class="show_basic">
+    <%= form_for @isa_study do |f| %>
+      <%= render :partial => "form", :locals => { :f => f, :action=>:new } -%>
+    <% end -%>
+  </div>
+<% end -%>

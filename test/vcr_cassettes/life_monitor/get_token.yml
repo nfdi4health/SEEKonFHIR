@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://localhost:8443/oauth2/token
+    body:
+      encoding: UTF-8
+      string: client_id=fWWLbOAw0pLlRKIWOQlkO4b4&client_secret=Ne1kK6NljWRayqzDfgMWBfVplkRGZto6MCjdfhK1jY7r8RVp&grant_type=client_credentials&scope=registry.info+registry.user+registry.workflow.read+registry.workflow.write+registry.user.workflow.read+registry.user.workflow.write+workflow.read+workflow.write+testingService.read+testingService.write+user.profile+user.workflow.read
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (linux x86_64) ruby/2.7.5p203
+      Content-Length:
+      - '367'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:8443
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 21 Jun 2022 14:46:45 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '354'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: UTF-8
+      string: '{"access_token": "FUY30D5gtDOeEPE2qu0MbWg2afrrst4whOOB1zHDtF", "expires_in":
+        864000, "scope": "registry.info registry.user registry.workflow.read registry.workflow.write
+        registry.user.workflow.read registry.user.workflow.write workflow.read workflow.write
+        testingService.read testingService.write user.profile user.workflow.read",
+        "token_type": "Bearer"}'
+    http_version: 
+  recorded_at: Tue, 21 Jun 2022 14:46:45 GMT
+recorded_with: VCR 2.9.3

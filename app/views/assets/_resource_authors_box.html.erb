@@ -1,0 +1,61 @@
+<%# This partial expects 3 parameters to be defined: -%>
+<%# - resource - instance of resource for which the authors are displayed -%>
+<%# - assets_creators - collection of AssetsCreators to which the resource is attributed -%>
+<%# - title - the title of the box (defaults to Creators if missing) -%>
+<%
+  title ||= "#{t('creator').capitalize.pluralize} and #{t('contributor').capitalize}"
+  contributor = resource.contributor
+  assets_creators ||= resource.assets_creators
+  other_creators ||= resource.respond_to?(:other_creators) ? resource.other_creators : nil
+  avatar_size ||= 20
+%>
+
+<%= panel(title, id: 'author-box',
+          help_text: "These are the people that created the item, along with the person who submitted it. Sometimes the submitter may have uploaded the item on behalf of its contributors, but was not involved in creating it.") do %>
+  <% unless resource.is_a?(Publication) %>
+    <h5 class="author-list-title"><%= t('creator').capitalize.pluralize(assets_creators.count) -%></h5>
+
+    <% if assets_creators.none? %>
+      <span class="none_text">Not specified</span>
+    <% end %>
+
+    <ul class="author-list">
+      <% assets_creators.each_with_index do |assets_creator| %>
+        <% creator = assets_creator.creator %>
+        <% if creator %>
+          <% if creator.can_view? %>
+            <li class="author-list-item"><%= favouritable_icon(creator, avatar_size) -%> <%= link_to(assets_creator.name, creator) -%></li>
+          <% end %>
+        <% else %>
+          <li class="author-list-item" title="<%= assets_creator.name -%><%= ", #{assets_creator.affiliation}" if assets_creator.affiliation -%>">
+            <%= assets_creator.name -%>
+            <% if assets_creator.orcid %>
+              <%= orcid_link(assets_creator.orcid) %>
+            <% end %></li> <%# This closing tag is aligned here deliberately to stop whitespace before comma (Due to inline-block style) %>
+        <% end %>
+      <% end %>
+    </ul>
+
+    <% if other_creators.present? %>
+      <h5 class="author-list-title"><%= resource.class.human_attribute_name('other_creators') -%></h5>
+      <p class="additional-credit"><%= other_creators -%></p>
+    <% end %>
+
+    <h5 class="author-list-title"><%= t('contributor').capitalize -%></h5>
+  <% end %>
+
+  <ul class="author-list">
+    <li class="author-list-item">
+      <% if contributor %>
+        <%= favouritable_icon(contributor, avatar_size, tooltip_suffix: " (#{t('contributor').capitalize})") -%>
+        <%= link_to(contributor.name, contributor) %>
+      <% else %>
+        <% if resource.has_deleted_contributor? %>
+          <%= deleted_contributor_contributor_icon(size: avatar_size) -%> <span class="none_text">deleted</span>
+        <% elsif resource.has_jerm_contributor? %>
+          <%= the_jerm_contributor_contributor_icon(size: avatar_size) -%> JERM
+        <% end %>
+      <% end %>
+    </li>
+  </ul>
+<% end %>

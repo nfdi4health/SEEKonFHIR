@@ -1,0 +1,13 @@
+<% resource_text = resource_text_from_controller.pluralize(@visible_count)%>
+
+<span id="resource-count-stats">
+  <strong><%= @visible_count %></strong>
+  <% if @active_filters&.any? -%>
+    <%= resource_text %> matching the given criteria:
+    <%= link_to("(Clear all filters)", page_and_sort_params.merge(filter: nil)) %>
+  <% elsif @total_count && controller_model.authorization_supported? %>
+    <%= resource_text %> visible to you, out of a total of <strong><%= @total_count %></strong>
+  <% else %>
+    <%= resource_text %> found
+  <% end %>
+</span>

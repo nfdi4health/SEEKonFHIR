@@ -1,0 +1,26 @@
+<% @page_title ||= "New #{t('data_file')}" %>
+<h1><%= @page_title %></h1>
+
+<%= index_and_new_help_icon controller_name %>
+
+<%= form_tag({:action => :create_content_blob}, :multipart => true) do -%>
+  <%= forward_params(:data_file) %>
+
+
+
+    <div class="asset_form">
+      <%= error_messages_for :data_file -%>
+
+      <%= render :partial=>"assets/upload_box",:locals=>{:resource=>@data_file} -%>
+
+      <div>
+        <%= create_button id:"data_file_submit_btn",
+                          onclick:"return validateResourceFields('data_file');",
+                          class:'btn btn-primary' %>
+        or <%= cancel_button(params[:single_page] ? single_page_path(id: params[:single_page]) : data_files_path) -%>
+      </div>
+    </div>
+    <% if displaying_single_page?%>
+      <input name="single_page" type="hidden" value=<%=params[:single_page]%> />
+    <% end %>
+<% end -%>

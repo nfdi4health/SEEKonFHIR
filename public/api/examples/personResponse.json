@@ -1,0 +1,150 @@
+{
+  "data": {
+    "id": "1039992246",
+    "type": "people",
+    "attributes": {
+      "avatar": "/people/1039992246/avatars/45",
+      "title": "Maximilian Maxi-Mum",
+      "description": "A person with all possible details",
+      "first_name": "Maximilian",
+      "last_name": "Maxi-Mum",
+      "orcid": "https://orcid.org/0000-0001-9842-9718",
+      "mbox_sha1sum": "a19916c29e3857b918504789a62950d3542f94ec",
+      "expertise": [
+        "fishing",
+        "golf"
+      ],
+      "tools": [
+        "fishing rod"
+      ],
+      "login": "max_person_user"
+    },
+    "relationships": {
+      "projects": {
+        "data": [
+          {
+            "id": "1022256835",
+            "type": "projects"
+          }
+        ]
+      },
+      "institutions": {
+        "data": [
+          {
+            "id": "980196780",
+            "type": "institutions"
+          }
+        ]
+      },
+      "investigations": {
+        "data": [
+          {
+            "id": "973655440",
+            "type": "investigations"
+          }
+        ]
+      },
+      "studies": {
+        "data": [
+          {
+            "id": "1060385452",
+            "type": "studies"
+          }
+        ]
+      },
+      "assays": {
+        "data": [
+          {
+            "id": "1035387171",
+            "type": "assays"
+          }
+        ]
+      },
+      "data_files": {
+        "data": [
+          {
+            "id": "883654679",
+            "type": "data_files"
+          }
+        ]
+      },
+      "models": {
+        "data": [
+          {
+            "id": "1004285720",
+            "type": "models"
+          }
+        ]
+      },
+      "sops": {
+        "data": [
+          {
+            "id": "1055250745",
+            "type": "sops"
+          }
+        ]
+      },
+      "publications": {
+        "data": [
+          {
+            "id": "165",
+            "type": "publications"
+          }
+        ]
+      },
+      "presentations": {
+        "data": [
+          {
+            "id": "78",
+            "type": "presentations"
+          }
+        ]
+      },
+      "events": {
+        "data": [
+          {
+            "id": "1025618735",
+            "type": "events"
+          }
+        ]
+      },
+      "documents": {
+        "data": [
+          {
+            "id": "211",
+            "type": "documents"
+          }
+        ]
+      },
+      "workflows": {
+        "data": [
+          {
+            "id": "218",
+            "type": "workflows"
+          }
+        ]
+      },
+      "collections": {
+        "data": [
+          {
+            "id": "29",
+            "type": "collections"
+          }
+        ]
+      }
+    },
+    "links": {
+      "self": "/people/1039992246"
+    },
+    "meta": {
+      "created": "2022-10-26T11:44:30.000Z",
+      "modified": "2022-10-26T11:44:30.000Z",
+      "api_version": "0.3",
+      "base_url": "http://localhost:3000",
+      "uuid": "7a421450-3751-013b-356e-000c29a94011"
+    }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

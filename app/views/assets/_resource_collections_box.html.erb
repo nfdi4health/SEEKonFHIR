@@ -1,0 +1,23 @@
+<%# This partial expects 3 parameters to be defined: -%>
+<%# - resource - instance of resource for which the attributions are displayed -%>
+
+<% main_list_section_length = 2 -%>
+<% collections ||= resource.collections -%>
+<% truncate_to ||= 22 -%>
+<% collections = collections.map { |c| c.can_view? ? c : nil }.sort_by { |x| x.nil? ? 1 : 0 } # Move "private" collections to the bottom of the list %>
+
+<%= panel('Collections', help_text: "Which collections does this resource appear in?") do %>
+  <%= expandable_list(collections, limit: main_list_section_length, id: 'collections-list') do |item| %>
+    <% if item -%>
+      <% item_type = item.class.name -%>
+      <% by_text = item.contributor.nil? ? "" : " by #{h(item.contributor.name)}" %>
+      <% tooltip_txt = "#{item_type.humanize}: \"#{h(item.title)}\"#{by_text}" -%>
+      <%= link_to(item, 'data-tooltip' => tooltip_txt) do %>
+        <%= avatar(item, 32, true, nil, nil, false, nil) %>
+        <%= truncate(item.title, length: truncate_to) %>
+      <% end %>
+    <% else -%>
+      <span class="none_text">Private collection</span>
+    <% end -%>
+  <% end %>
+<% end %>

@@ -1,0 +1,12 @@
+# This is your version information.
+# It is is read by Seek::Version and reported by rake app:version
+#
+# major, minor are required, patch is optional. All be numeric or text. the following would produce "2.0.sprint-555"
+# 
+# major:        2
+# minor:        0
+# patch:        sprint-555
+
+major:        1
+minor:        15
+patch:        0-main 

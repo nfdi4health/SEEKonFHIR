@@ -1,0 +1,167 @@
+{
+  "data": {
+    "id": "1295",
+    "type": "programmes",
+    "attributes": {
+      "discussion_links": [
+        {
+          "id": "410",
+          "label": "Slack",
+          "url": "http://www.slack.com/"
+        }
+      ],
+      "avatar": null,
+      "title": "A Maximal Programme",
+      "description": "A very exciting programme",
+      "web_page": "http://www.synbiochem.co.uk",
+      "funding_details": "Someone is funding this for me",
+      "funding_codes": [
+        "DFG"
+      ]
+    },
+    "relationships": {
+      "administrators": {
+        "data": [
+          {
+            "id": "5585",
+            "type": "people"
+          }
+        ]
+      },
+      "people": {
+        "data": [
+          {
+            "id": "5584",
+            "type": "people"
+          },
+          {
+            "id": "5585",
+            "type": "people"
+          }
+        ]
+      },
+      "projects": {
+        "data": [
+          {
+            "id": "7648",
+            "type": "projects"
+          }
+        ]
+      },
+      "institutions": {
+        "data": [
+          {
+            "id": "5584",
+            "type": "institutions"
+          }
+        ]
+      },
+      "investigations": {
+        "data": [
+          {
+            "id": "656",
+            "type": "investigations"
+          }
+        ]
+      },
+      "studies": {
+        "data": [
+          {
+            "id": "574",
+            "type": "studies"
+          }
+        ]
+      },
+      "assays": {
+        "data": [
+          {
+            "id": "492",
+            "type": "assays"
+          }
+        ]
+      },
+      "data_files": {
+        "data": [
+          {
+            "id": "164",
+            "type": "data_files"
+          }
+        ]
+      },
+      "models": {
+        "data": [
+          {
+            "id": "656",
+            "type": "models"
+          }
+        ]
+      },
+      "sops": {
+        "data": [
+          {
+            "id": "164",
+            "type": "sops"
+          }
+        ]
+      },
+      "publications": {
+        "data": [
+          {
+            "id": "164",
+            "type": "publications"
+          }
+        ]
+      },
+      "presentations": {
+        "data": [
+          {
+            "id": "82",
+            "type": "presentations"
+          }
+        ]
+      },
+      "events": {
+        "data": [
+          {
+            "id": "82",
+            "type": "events"
+          }
+        ]
+      },
+      "documents": {
+        "data": [
+          {
+            "id": "164",
+            "type": "documents"
+          }
+        ]
+      },
+      "workflows": {
+        "data": [
+          {
+            "id": "82",
+            "type": "workflows"
+          }
+        ]
+      },
+      "collections": {
+        "data": [
+
+        ]
+      }
+    },
+    "links": {
+      "self": "/programmes/1295"
+    },
+    "meta": {
+      "created": "2023-03-28T14:57:00.000Z",
+      "modified": "2023-03-28T14:57:00.000Z",
+      "api_version": "0.3",
+      "base_url": "http://localhost:3000",
+      "uuid": "b7d5d740-afa6-013b-c76a-2c91a17e7bb9"
+    }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

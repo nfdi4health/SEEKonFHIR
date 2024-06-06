@@ -1,0 +1,36 @@
+agent based modelling:
+  title: Agent based modelling
+
+algebraic equations:
+  title: Algebraic equations
+
+bayesian:
+  title: Bayesian network
+
+boolean:
+  title: Boolean network
+
+graphical:
+  title: Graphical model
+
+linear equations:
+  title: Linear equations
+
+metabolic_network:
+  title: Metabolic network
+
+ODE:
+  title: Ordinary differential equations (ODE)
+
+PDE:
+  title: Partial differential equations (PDE)
+
+Petri:
+  title: Petri net
+
+stoichiometric:
+  title: Stoichiometric model
+
+
+
+

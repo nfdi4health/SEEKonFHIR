@@ -1,0 +1,8 @@
+<%
+   status = ApplicationStatus.instance
+   unless Seek::Docker.using_docker?
+      status.refresh
+   end
+   search = status.search_enabled ? "enabled" : "disabled"
+%>
+<%= Seek::Config.instance_name %> is running | search is <%= search %> | <%= status.running_jobs %> delayed jobs running

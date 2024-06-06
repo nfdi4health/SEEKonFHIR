@@ -1,0 +1,135 @@
+{
+  "data": {
+    "id": "88",
+    "type": "investigations",
+    "attributes": {
+      "policy": {
+        "access": "download",
+        "permissions": [
+          {
+            "resource": {
+              "id": "499",
+              "type": "projects"
+            },
+            "access": "manage"
+          },
+          {
+            "resource": {
+              "id": "530",
+              "type": "projects"
+            },
+            "access": "manage"
+          }
+        ]
+      },
+      "discussion_links": [
+
+      ],
+      "snapshots": [
+
+      ],
+      "title": "A Maximal Investigation",
+      "description": "This is a more complex investigation",
+      "other_creators": "Max Blumenthal, Ed Snowden",
+      "position": null,
+      "creators": [
+        {
+          "profile": "/people/460",
+          "family_name": "Last",
+          "given_name": "Person383",
+          "affiliation": "An Institution: 462, An Institution: 491",
+          "orcid": null
+        }
+      ]
+    },
+    "relationships": {
+      "creators": {
+        "data": [
+          {
+            "id": "460",
+            "type": "people"
+          }
+        ]
+      },
+      "submitter": {
+        "data": [
+          {
+            "id": "460",
+            "type": "people"
+          }
+        ]
+      },
+      "people": {
+        "data": [
+          {
+            "id": "460",
+            "type": "people"
+          }
+        ]
+      },
+      "projects": {
+        "data": [
+          {
+            "id": "499",
+            "type": "projects"
+          },
+          {
+            "id": "530",
+            "type": "projects"
+          }
+        ]
+      },
+      "studies": {
+        "data": [
+
+        ]
+      },
+      "assays": {
+        "data": [
+
+        ]
+      },
+      "data_files": {
+        "data": [
+
+        ]
+      },
+      "models": {
+        "data": [
+
+        ]
+      },
+      "sops": {
+        "data": [
+
+        ]
+      },
+      "publications": {
+        "data": [
+          {
+            "id": "43",
+            "type": "publications"
+          }
+        ]
+      },
+      "documents": {
+        "data": [
+
+        ]
+      }
+    },
+    "links": {
+      "self": "/investigations/88"
+    },
+    "meta": {
+      "created": "2022-06-07T14:13:39.000Z",
+      "modified": "2022-06-07T14:13:39.000Z",
+      "api_version": "0.3",
+      "base_url": "http://localhost:3000",
+      "uuid": "f3edefa0-c899-013a-0f7e-0a81884ed284"
+    }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

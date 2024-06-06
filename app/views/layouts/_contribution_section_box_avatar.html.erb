@@ -1,0 +1,22 @@
+<%# this partial expects 2 local to be declared -- -%>
+<%# 1) "object" for which the avatar is displayed (object.name() method should be available for any supplied object); -%>
+
+<%= panel(nil, class: 'text-center') do %>
+  <div>
+    <%= favouritable_icon(object, 120) -%>
+  </div>
+
+  <% if object && object.respond_to?(:can_edit?) && object.can_edit?(current_user) -%>
+    <%= image_tag_for_key('avatars', polymorphic_path([object, :avatars]), nil, { class: 'btn btn-default btn-xs' }, 'Change picture') %>
+  <% end %>
+
+  <% if object.instance_of?(Person) -%>
+    <div>
+      <a href="#" data-toggle="modal" data-target="#person-roles">
+        <%= seek_role_icons(object) -%>
+      </a>
+
+      <%= render partial: 'people/roles_modal', locals: { person: object } %>
+    </div>
+  <% end -%>
+<% end %>

@@ -1,0 +1,20 @@
+<% if images.empty? %>
+  <span class="none_text">No images</span>
+<% end %>
+
+<% images.each do |i| %>
+  <div class="image_thumbnail">
+    <%= link_to(view_help_image_path(i), target: '_blank') do %>
+      <div class="thumb">
+        <%= image_tag(view_help_image_path(i, image_size: '64x64'), class: 'thumb') -%>
+      </div>
+    <% end %>
+    <br/>
+    <%= link_to(image('new', title: 'Insert image', alt: 'Insert image'), "#", onclick: "insertAtCursor('help_document_body',\"!#{view_help_image_path(i)}!\"); return false;") %>
+    <%= link_to(image('destroy', alt: 'Delete', title: 'Delete image'),
+                help_document_help_image_path(@help_document, i),
+                data: { confirm: 'Are you sure you wish to delete this image?' }, remote: true, method: :delete,
+                class: 'delete-help-image') %>
+    <%= image_tag 'ajax-loader.gif', id: "image_spinner_#{i.id}", style: 'display:none;' -%>
+  </div>
+<% end %>

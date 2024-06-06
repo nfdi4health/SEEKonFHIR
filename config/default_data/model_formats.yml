@@ -1,0 +1,68 @@
+BioPAX:
+  title: BioPAX
+
+CellML:
+  title: CellML
+
+Copasi:
+  title: Copasi
+
+FieldML:
+  title: FieldML
+
+GraphML:
+  title: GraphML
+
+Image:
+  title: Image
+
+KGML:
+  title: KGML
+
+Mathematica:
+  title: Mathematica
+
+MathML:
+  title: MathML
+
+Matlab:
+  title: Matlab package
+
+MFAML:
+  title: MFAML
+
+PDF:
+  title: PDF (Model description)
+
+Python:
+  title: Python code
+
+R:
+  title: R package
+
+SBGN-ML-PD:
+  title: SBGN-ML PD
+
+SBML:
+  title: SBML
+
+SciLab:
+  title: SciLab
+
+Simile:
+  title: "Simile XML v3"
+
+SVG:
+  title: SVG
+
+SXML:
+  title: SXML
+
+VCML:
+  title: Virtual Cell Markup Language (VCML)
+
+XGMML:
+  title: XGMML
+
+XPP:
+  title: XPP

@@ -1,0 +1,69 @@
+Dear <%= @person.name%>,
+<br/>
+<br/>
+<% if @frequency == 'immediately' %>
+The following resources have just been created or updated in <%= Seek::Config.instance_name %>:
+<% else %>
+    <%
+       if @frequency == 'daily'
+         frequency = 'day'
+       else
+         frequency = @frequency.chomp('ly')
+       end
+    %>
+    For the <%= t('project').pluralize %> you have subscribed to receive notifications, the following resources have been created or updated in <%= Seek::Config.instance_name %> during the past <%= frequency %>:
+<% end %>
+<br/>
+<br/>
+<% subscribed_projects = @person.subscribed_projects.to_a %>
+<% @activity_logs.group_by(&:action).each do |action, logs| %>
+  <label style="color:#f0342a;"><b>Resources <%= action.capitalize%>d:</b></label>
+  <div id="new_resources" class="new_resources" >
+    <table border="1px" cellpadding="5" style="border-collapse: collapse;
+      font-family: 'Lucida Grande', Tahoma, Arial, Helvetica, sans-serif;
+      width: 100%;">
+      <tr>
+        <th align="left"><%= t('project') %> Names</th>
+        <th align="left">Resource Type</th>
+        <th align="left">Resource Name</th>
+        <th align="left">Person</th>
+        <th align="left">Date <%= action.capitalize%>d</th>
+        <th align="left">Unsubscribe?</th>
+      </tr>
+      <% logs.each do |log| %>
+        <%
+          resource_projects = log.activity_loggable.projects
+          reported_projects = resource_projects.to_a & subscribed_projects
+          project_names = reported_projects.collect(&:title).join(',')
+        %>
+        <tr>
+          <td>
+            <% if project_names.blank? %>
+              <span style="font-style: italic; color: #666666">Not Specified</span>
+            <% else %>
+              <%= project_names %>
+            <% end  %>
+          </td>
+          <td><%= log.activity_loggable_type.humanize %></td>
+          <td><%= link_to(log.activity_loggable.title, polymorphic_url(log.activity_loggable)) %></td>
+          <td><%= link_to(log.culprit.person.name, person_url(log.culprit.person)) if log.culprit&.person %></td>
+          <td><%= date_as_string(log.created_at, true) %></td>
+          <td><%= link_to 'Unsubscribe', polymorphic_url(log.activity_loggable) %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <br style="clear:both"/>
+<% end %>
+<br/>
+You can change your subscription setting by editing your profile:
+<%= link_to('Edit profile', edit_person_url(@person)) -%>.
+<br/>
+
+You can unsubscribe from a particular resource by clicking on the Unsubscribe link in the subscription report above
+<br/>
+or by visiting that resource in <%= Seek::Config.instance_name %>
+<br/>
+<br/>
+
+This is an automated email.

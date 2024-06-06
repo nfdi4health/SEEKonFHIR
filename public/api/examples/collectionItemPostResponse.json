@@ -1,0 +1,39 @@
+{
+  "data": {
+    "id": "14",
+    "type": "collection_items",
+    "attributes": {
+      "comment": "A fine addition to the collection indeed",
+      "order": 3
+    },
+    "relationships": {
+      "collection": {
+        "data": {
+          "id": "9",
+          "type": "collections"
+        }
+      },
+      "asset": {
+        "data": {
+          "id": "50",
+          "type": "sops"
+        },
+        "meta": {
+          "title": "This Sop"
+        }
+      }
+    },
+    "links": {
+      "self": "/collections/9/items/14"
+    },
+    "meta": {
+      "created": "2022-06-07T14:14:27.000Z",
+      "modified": "2022-06-07T14:14:27.000Z",
+      "api_version": "0.3",
+      "base_url": "http://localhost:3000"
+    }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

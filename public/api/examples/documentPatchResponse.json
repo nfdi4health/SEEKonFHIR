@@ -1,0 +1,154 @@
+{
+  "data": {
+    "id": "26",
+    "type": "documents",
+    "attributes": {
+      "policy": {
+        "access": "no_access",
+        "permissions": [
+          {
+            "resource": {
+              "id": "251",
+              "type": "projects"
+            },
+            "access": "edit"
+          }
+        ]
+      },
+      "discussion_links": [
+
+      ],
+      "title": "A Maximally Patched Document",
+      "license": "CC-BY-4.0",
+      "description": "A report about the thing that happened",
+      "latest_version": 1,
+      "tags": [
+        "tag1",
+        "tag2",
+        "tag3"
+      ],
+      "versions": [
+        {
+          "version": 1,
+          "revision_comments": null,
+          "url": "http://localhost:3000/documents/26?version=1",
+          "doi": null
+        }
+      ],
+      "version": 1,
+      "revision_comments": null,
+      "created_at": "2022-06-07T14:12:58.000Z",
+      "updated_at": "2022-06-07T14:12:58.000Z",
+      "doi": null,
+      "content_blobs": [
+        {
+          "original_filename": "file-26",
+          "url": null,
+          "md5sum": "f1986c5013e53627e5d5830b84adcab5",
+          "sha1sum": "a73f327ed87f56b2aed6f886651d32a0c96abf75",
+          "content_type": "application/pdf",
+          "link": "http://localhost:3000/documents/26/content_blobs/106",
+          "size": 9
+        }
+      ],
+      "creators": [
+        {
+          "profile": "/people/236",
+          "family_name": "Last",
+          "given_name": "Person192",
+          "affiliation": "An Institution: 238",
+          "orcid": null
+        }
+      ],
+      "other_creators": "John Smith, Jane Smith"
+    },
+    "relationships": {
+      "creators": {
+        "data": [
+          {
+            "id": "236",
+            "type": "people"
+          }
+        ]
+      },
+      "submitter": {
+        "data": [
+          {
+            "id": "235",
+            "type": "people"
+          }
+        ]
+      },
+      "people": {
+        "data": [
+          {
+            "id": "235",
+            "type": "people"
+          },
+          {
+            "id": "236",
+            "type": "people"
+          }
+        ]
+      },
+      "projects": {
+        "data": [
+          {
+            "id": "251",
+            "type": "projects"
+          }
+        ]
+      },
+      "investigations": {
+        "data": [
+          {
+            "id": "38",
+            "type": "investigations"
+          }
+        ]
+      },
+      "studies": {
+        "data": [
+          {
+            "id": "36",
+            "type": "studies"
+          }
+        ]
+      },
+      "assays": {
+        "data": [
+          {
+            "id": "34",
+            "type": "assays"
+          }
+        ]
+      },
+      "publications": {
+        "data": [
+
+        ]
+      },
+      "workflows": {
+        "data": [
+          {
+            "id": "14",
+            "type": "workflows"
+          }
+        ]
+      }
+    },
+    "links": {
+      "self": "/documents/26?version=1"
+    },
+    "meta": {
+      "created": "2022-06-07T14:12:58.000Z",
+      "modified": "2022-06-07T14:12:58.000Z",
+      "api_version": "0.3",
+      "base_url": "http://localhost:3000",
+      "uuid": "db5cd6a0-c899-013a-0f7e-0a81884ed284"
+    }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

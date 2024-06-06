@@ -1,0 +1,44 @@
+
+
+<% if !search_results.empty? -%>
+  <p><%= link_to image("arrow_left"),  url_for(:action => :search_ajax, :controller => :organisms, :pagenum => pagenum.to_i-1, :search_term => search_term),
+                 method: :post, remote: true, class: 'bioportal-pager-link' unless pagenum.to_i <= 1 -%>
+    <%= "Page #{pagenum.to_s}  of #{pages.to_s}" -%>
+    <%= link_to image("arrow_right"), url_for(:action => :search_ajax, :controller => :organisms, :pagenum => pagenum.to_i+1, :search_term => search_term),
+                method: :post, remote: true, class: 'bioportal-pager-link' unless pagenum.to_i >= pages.to_i -%>
+    </p>
+    <div id="organism-search-results">
+      <table class="table">
+        <thead>
+        <tr>
+          <th id="organism-name">
+            Organism (click to select)
+          </th>
+          <th id="organism-synonyms">Synonyms</th>
+          <th id="organism-id">Taxonomy id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% search_results.each do |result| %>
+            <tr>
+              <td>
+                <%= link_to(result[:preferred_label], '#', onclick: "add_concept('#{result[:preferred_label]}','#{result[:ontology_acronym]}','#{result[:class_id]}'); return false;") -%>
+              </td>
+              <td><%= h(result[:synonyms].join(", ")) %></td>
+              <td><%= result[:class_id] %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  <script>
+    $j('.bioportal-pager-link').bind('ajax:beforeSend', function () {
+        $j('#search_results').spinner('add');
+    }).bind('ajax:complete', function (e, xhr) {
+        $j('#search_results').html(xhr.responseText);
+    })
+  </script>
+<% elsif !search_term.blank? %>
+    <br/>
+    <span class="none_text">No matches found for <b><%= h(search_term) -%></b></span>
+<% end -%>

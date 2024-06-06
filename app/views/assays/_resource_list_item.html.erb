@@ -1,0 +1,43 @@
+<%
+   assay_type_text = resource.is_modelling? ? "Biological problem addressed" : "#{t('assays.assay')} type"
+%>
+
+<%= list_item_description resource.description %>
+
+<div class="row">
+  <div class="col-sm-6">
+    <%= list_item_authorized_attribute t('contributor').capitalize, resource.contributor %>
+
+    <%= list_item_attribute(assay_type_text, resource.assay_type_label, assay_types_path(parameters_for_type(resource, 'assay_type'))) %>
+    <% unless resource.is_modelling? -%>
+      <%= list_item_attribute('Technology type', resource.technology_type_label, technology_types_path(parameters_for_type(resource, 'technology_type'))) %>
+    <% end -%>
+    <%= list_item_authorized_list [resource.investigation], t('investigation'), true, 50, true %>
+
+    <%= list_item_authorized_list [resource.study], t('study'), true, 50, true %>
+
+  </div>
+
+  <div class="col-sm-6 hidden-xs">
+    <% if Seek::Config.organisms_enabled %>
+        <%= list_assay_organisms("Organisms", resource.assay_organisms,{:class=>"list_item_attribute"}) %>
+    <% end %>
+
+    <% if Seek::Config.human_diseases_enabled %>
+        <%= list_assay_human_diseases("Human Diseases", resource.assay_human_diseases,{:class=>"list_item_attribute"}) %>
+    <% end %>
+
+    <% if Seek::Config.models_enabled %>
+      <%= list_item_authorized_list(resource.models, t('model').pluralize, true, 50, true) if resource.is_modelling? %>
+    <% end %>
+    <% if Seek::Config.sops_enabled %>
+      <%= list_item_authorized_list resource.sops, t('sop').pluralize, true, 50, true %>
+    <% end %>
+    <% if Seek::Config.data_files_enabled %>
+      <%= list_item_authorized_list resource.data_files, t('data_file').pluralize, true, 50, true %>
+    <% end %>
+
+    <%= list_item_snapshot_list resource %>
+    <%= list_item_doi(resource) %>
+  </div>
+</div>

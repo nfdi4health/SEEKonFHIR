@@ -1,0 +1,11 @@
+<%
+  label ||= ""
+  none_text ||= nil
+-%>
+
+<% unless label.blank? %>
+    <b><%= label -%>:</b>
+<% end %>
+<div id="description" class="markdown-body seek-description">
+  <%= text_or_not_specified(description, description: true, auto_link: true, none_text: none_text, markdown: true) %>
+</div>

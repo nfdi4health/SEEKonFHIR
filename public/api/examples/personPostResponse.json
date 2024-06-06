@@ -1,0 +1,110 @@
+{
+  "data": {
+    "id": "1039992235",
+    "type": "people",
+    "attributes": {
+      "avatar": null,
+      "title": "Post Person1039992235",
+      "description": "A person with all possible details",
+      "first_name": "Post",
+      "last_name": "Person1039992235",
+      "orcid": "https://orcid.org/0000-0001-9842-9718",
+      "mbox_sha1sum": "f1294d2fd50702dcee3a9686b360667d32eca0ad",
+      "expertise": [
+        "modeling",
+        "programming"
+      ],
+      "tools": [
+        "CeriusII",
+        "Gromacs",
+        "Python"
+      ],
+      "login": null
+    },
+    "relationships": {
+      "projects": {
+        "data": [
+
+        ]
+      },
+      "institutions": {
+        "data": [
+
+        ]
+      },
+      "investigations": {
+        "data": [
+
+        ]
+      },
+      "studies": {
+        "data": [
+
+        ]
+      },
+      "assays": {
+        "data": [
+
+        ]
+      },
+      "data_files": {
+        "data": [
+
+        ]
+      },
+      "models": {
+        "data": [
+
+        ]
+      },
+      "sops": {
+        "data": [
+
+        ]
+      },
+      "publications": {
+        "data": [
+
+        ]
+      },
+      "presentations": {
+        "data": [
+
+        ]
+      },
+      "events": {
+        "data": [
+
+        ]
+      },
+      "documents": {
+        "data": [
+
+        ]
+      },
+      "workflows": {
+        "data": [
+
+        ]
+      },
+      "collections": {
+        "data": [
+
+        ]
+      }
+    },
+    "links": {
+      "self": "/people/1039992235"
+    },
+    "meta": {
+      "created": "2022-10-26T11:44:29.000Z",
+      "modified": "2022-10-26T11:44:29.000Z",
+      "api_version": "0.3",
+      "base_url": "http://localhost:3000",
+      "uuid": "792fedf0-3751-013b-356e-000c29a94011"
+    }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

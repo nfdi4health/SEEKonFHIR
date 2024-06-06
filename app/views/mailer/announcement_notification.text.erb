@@ -1,0 +1,12 @@
+Dear <%= Seek::Config.instance_name %> user,
+    
+<%= @site_announcement.body -%>
+
+
+If you do not wish to receive these emails in the future, please visit:
+
+<%= notification_settings_site_announcements_url(:key=>@notifiee_info.unique_key) -%>
+
+
+kind regards,
+- The <%= Seek::Config.instance_admins_name %> Team

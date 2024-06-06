@@ -1,0 +1,63 @@
+<script type="text/javascript" id="preview-permission-link-script">
+    var permissionPopupSetting = "<%= case Seek::Config.permissions_popup
+      when Seek::Config::PERMISSION_POPUP_NEVER
+        'never'
+      when Seek::Config::PERMISSION_POPUP_ON_CHANGE
+        'on_change'
+      else
+        'always'
+      end %>";
+
+    function previewPermissions() {
+        var resource_id = <%= resource.new_record? ? 'null' : resource.id -%>;
+        var resource_name = '<%= resource.class.name.underscore -%>';
+
+        if (permissionPopupSetting === 'always' ||
+            permissionPopupSetting === 'on_change' && Sharing.permissionsChanged()) {
+            $j('#permissions_spinner').show();
+
+            var creators = creators || [];
+            var creator_ids = creators.map(function (x) {
+                return x.id
+            }).join(',');
+
+            var data = {
+                project_ids: Sharing.getSelectedProjectIds().join(','), // Controller expects this to be a string containing IDs separated by a comma
+                creators: creator_ids, // Controller expects this to be a string containing IDs separated by a comma
+                resource_name: resource_name
+            };
+
+            if (resource_id) {
+                data.resource_id = resource_id;
+            }
+
+            // Take the fields from the permissions table and serialize them along with the above hash
+            data = $j('#permissions-table :input').serialize() + '&' + $j.param(data);
+
+            $j.ajax({
+                type: "POST",
+                url: '<%= preview_permissions_policies_path -%>',
+                data: data,
+                success: function (result) {
+                    $j('#permissions-preview-wrapper').html(result);
+                    $j('#preview_permissions').modal('show');
+                    //this is to prevent other modal boxes being closes, if this is the child of another
+                    $j('#preview_permissions').on('click', '[data-dismiss="modal"]', function (e) { e.stopPropagation(); });
+                },
+                error: function () {
+                    alert('Sorry, an error has occurred.');
+                },
+                complete: function () {
+                    $j('#permissions_spinner').hide();
+                }
+            });
+            return false;
+        } else {
+            createOrUpdateResource(resource_name);
+            return false;
+        }
+    }
+</script>
+
+<%= image_tag("ajax-loader.gif", :id => 'permissions_spinner', :style => 'display: none') -%>
+<div id="permissions-preview-wrapper"></div>

@@ -1,0 +1,132 @@
+{
+  "data": {
+    "id": "1288",
+    "type": "programmes",
+    "attributes": {
+      "discussion_links": [
+
+      ],
+      "avatar": null,
+      "title": "Post Programme Max",
+      "description": "A very exciting programme",
+      "web_page": "http://www.synbiochem.co.uk",
+      "funding_details": "Someone is funding this for me",
+      "funding_codes": [
+        "BMBF",
+        "DFG"
+      ]
+    },
+    "relationships": {
+      "administrators": {
+        "data": [
+          {
+            "id": "5510",
+            "type": "people"
+          },
+          {
+            "id": "5511",
+            "type": "people"
+          }
+        ]
+      },
+      "people": {
+        "data": [
+          {
+            "id": "5510",
+            "type": "people"
+          },
+          {
+            "id": "5511",
+            "type": "people"
+          }
+        ]
+      },
+      "projects": {
+        "data": [
+          {
+            "id": "7564",
+            "type": "projects"
+          }
+        ]
+      },
+      "institutions": {
+        "data": [
+
+        ]
+      },
+      "investigations": {
+        "data": [
+
+        ]
+      },
+      "studies": {
+        "data": [
+
+        ]
+      },
+      "assays": {
+        "data": [
+
+        ]
+      },
+      "data_files": {
+        "data": [
+
+        ]
+      },
+      "models": {
+        "data": [
+
+        ]
+      },
+      "sops": {
+        "data": [
+
+        ]
+      },
+      "publications": {
+        "data": [
+
+        ]
+      },
+      "presentations": {
+        "data": [
+
+        ]
+      },
+      "events": {
+        "data": [
+
+        ]
+      },
+      "documents": {
+        "data": [
+
+        ]
+      },
+      "workflows": {
+        "data": [
+
+        ]
+      },
+      "collections": {
+        "data": [
+
+        ]
+      }
+    },
+    "links": {
+      "self": "/programmes/1288"
+    },
+    "meta": {
+      "created": "2023-03-28T14:56:53.000Z",
+      "modified": "2023-03-28T14:56:53.000Z",
+      "api_version": "0.3",
+      "base_url": "http://localhost:3000",
+      "uuid": "b37f0780-afa6-013b-c76a-2c91a17e7bb9"
+    }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

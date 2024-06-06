@@ -1,0 +1,64 @@
+<h1>Paging/Sorting behaviour</h1>
+
+<%= form_tag action: 'update_pagination' do %>
+  <p class="help-block">
+    On this page you can configure options relating to pagination and sorting of items on index pages, and various
+    other places where items are listed.
+  </p>
+
+  <h2>Index Pages</h2>
+  <%= admin_text_setting(:results_per_page_default, Seek::Config.results_per_page_default,
+                         'Default items per page', "The number of items shown per page on index pages by default.",
+                         onkeypress: "javascript: return onlyNumbers(event);") %>
+
+  <%= admin_text_setting(:results_per_page_default_condensed, Seek::Config.results_per_page_default_condensed,
+                         'Default items per page in condensed views', "The number of items shown per page on index pages by default in condensed views.",
+                         onkeypress: "javascript: return onlyNumbers(event);") %>
+
+  <table class="table table-condensed" style="width: auto">
+    <thead>
+    <tr>
+      <th style="width: 10em">Type</th>
+      <th style="width: 30em">Default Sorting</th>
+      <th style="width: 15em">
+        Items per page<br/>
+        <span class="subtle">(leave blank to use default)</span>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <%
+      ['programmes', 'projects', 'people', 'institutions',
+       'investigations', 'studies', 'assays',
+       'data_files', 'models', 'sops', 'publications', 'documents', 'presentations', 'events', 'file_templates', 'placeholders'].each do |controller| %>
+      <% options = Seek::ListSorter.options_for_select(controller.classify) %>
+      <% selected = Seek::Config.sorting_for(controller) || Seek::ListSorter.key_for_view(controller.classify, :index) %>
+      <tr>
+        <th scope="row"><%= t(controller.singularize).pluralize -%></th>
+        <td>
+          <%= select_tag("sorting[#{controller}]", options_for_select(options, selected),
+                         autocomplete: 'off',
+                         class: 'form-control') %>
+        </td>
+        <td class="form-inline">
+          <%= text_field_tag("results_per_page[#{controller}]", Seek::Config.results_per_page_for(controller),
+                             size: 5, class: 'form-control', placeholder: 'Default',
+                             onkeypress: "javascript: return onlyNumbers(event);") %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <h2>Other</h2>
+  <%= admin_text_setting(:related_items_limit, Seek::Config.related_items_limit,
+                         'Related items limit', 'The number of items per category displayed in the "Related items" section, before the user has to click the "View all..." link.',
+                         onkeypress: "javascript: return onlyNumbers(event);") %>
+
+  <%= admin_text_setting(:search_results_limit, Seek::Config.search_results_limit,
+                         'Search results limit', 'The number of search results per category displayed when performing a general search, before the user has to click the "View all..." link.',
+                         onkeypress: "javascript: return onlyNumbers(event);") %>
+
+  <%= submit_tag "Update", data: { disable_with: 'Updating...' }, :class => 'btn btn-primary' -%> or
+  <%= cancel_button admin_path %>
+<% end -%>

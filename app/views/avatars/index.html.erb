@@ -1,0 +1,45 @@
+<% editable = mine?(@avatar_owner_instance) || @avatar_owner_instance.can_edit?(current_user) -%>
+
+<%
+    item = @avatar_owner_instance.class.name.downcase
+    if item=="person"
+      item = "profile"
+    else
+        item = t(item)
+    end
+%>
+
+<% content_for(:buttons) do %>
+    <%= button_link_to("Return to #{item}", 'back', url_for(@avatar_owner_instance))%>
+    <% if editable -%>
+        <%= button_link_to('Upload New Picture', 'avatar', polymorphic_path([:new, @avatar_owner_instance, :avatar]))%>
+    <% end %>
+<% end -%>
+
+<%= render :partial=>"general/page_title", :locals=>{ :title => "#{@avatar_owner_instance.title}'s Avatars"} %>
+
+<div class="avatar-gallery">
+  <% @avatars.each do |avatar| %>
+      <div class="avatar">
+        <%= link_to avatar_url(@avatar_owner_instance, avatar, "large") do -%>
+            <%= image_tag avatar_url(@avatar_owner_instance, avatar, 100), :alt => @avatar_owner_instance.title, :class => 'framed' -%>
+        <% end %>
+        <% if avatar.selected? -%><br/>(Current)<% end -%>
+        <% if editable %>
+            <% unless avatar.selected? -%>
+                <%
+                   change_path = polymorphic_path([:select, @avatar_owner_instance, avatar])
+                %>
+                <br/><%= image_tag_for_key "avatar", change_path, nil, { :method => :post }, "Set as Main Picture" -%>
+            <% end -%>
+
+            <% avatar_path = polymorphic_path([@avatar_owner_instance, avatar]) %>
+            <br/><%= image_tag_for_key "destroy", avatar_path, nil, { data: { confirm: 'Are you sure?' }, :method => :delete }, "Delete" -%>
+        <% end -%>
+      </div>
+  <% end -%>
+
+  <% if @avatars.empty? %>
+      <p class="none_text">No avatars yet!</p>
+  <% end -%>
+</div>

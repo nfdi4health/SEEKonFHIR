@@ -1,0 +1,24 @@
+<% image = @display_model.model_image -%>
+<p>
+  <b>
+    <%= t('model') %> image: </b>
+
+      <% if image
+
+           image_width = @display_model.model_image.image_width.nil??  600 : @display_model.model_image.image_width
+           image_width=600 if image_width>600
+           zoom_width = Seek::ActsAsFleximageExtension::MAX_SIZE
+      %>
+
+        <span class="none_text">(Click on the image to zoom)</span>
+        <span> (<%= link_to('Original',model_model_image_path(@model,@display_model.model_image, :code=>params[:code]), target: :_blank) %>)</span>
+        <div id="thumbnail" >
+              <a href='<%= model_model_image_path(@model,@display_model.model_image, :code=>params[:code],:size=>zoom_width) %>' data-lightbox="model-image-<%= image.id -%>">
+                <img src="<%= model_model_image_path(@model,@display_model.model_image,:code=>params[:code],:size=>image_width)  %>" style="max-width: 100%;"/>
+              </a>
+        </div>
+      <% else %>
+        <span class='none_text'>No image specified</span>
+      <% end %>
+
+</p>

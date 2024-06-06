@@ -1,0 +1,27 @@
+<% versioned_resource ||= nil %>
+<% resource ||= nil %>
+<% resource_name = resource ? resource.class.name : nil %>
+
+<ul class="nav nav-tabs">
+  <%= tab('overview') do %>
+    <span class="glyphicon glyphicon-list-alt"></span> Overview
+  <% end %>
+
+  <% if versioned_resource&.is_git_versioned? %>
+    <%= tab('files', disabled_reason: versioned_resource.can_download? ? nil : 'You are not authorized to access this content.') do %>
+      <span class="glyphicon glyphicon-folder-close"></span> Files
+    <% end %>
+  <% end %>
+
+  <%= tab('related-items') do %>
+    <span class="glyphicon glyphicon-th-list"></span> Related items
+  <% end %>
+
+	<% if resource %>
+		<% if Seek::Config.isa_json_compliance_enabled && resource.is_isa_json_compliant? %>
+			<%= tab(resource_name&.downcase + "_design") do %>
+				<span class="glyphicon glyphicon-th-list"></span> <%= resource.model_name.human %> design
+			<% end %>
+		<% end %>
+	<% end %>
+</ul>

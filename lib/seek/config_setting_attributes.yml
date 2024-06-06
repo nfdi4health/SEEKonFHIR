@@ -1,0 +1,264 @@
+#keys that create the Seek::Config settings.
+#e.g. Seek::Config.home_description
+home_description:
+bioportal_api_key:
+jws_online_root:
+internal_help_enabled:
+external_help_url:
+hide_details_enabled:
+registration_disabled:
+registration_disabled_description:
+activation_required_enabled:
+smtp:
+  encrypt: true
+instance_link:
+type_managers_enabled:
+type_managers:
+pubmed_api_email:
+crossref_api_email:
+site_base_host:
+copyright_addendum_enabled:
+copyright_addendum_content:
+noreply_sender:
+solr_enabled:
+application_name:
+instance_name:
+instance_description:
+instance_keywords:
+instance_admins_name:
+instance_admins_link:
+issue_tracker:
+header_image_link:
+header_image_title:
+header_image_enabled:
+header_image_avatar_id:
+google_analytics_enabled:
+google_analytics_tracking_notice:
+google_analytics_tracker_id:
+piwik_analytics_url:
+exception_notification_enabled:
+exception_notification_recipients:
+error_grouping_enabled:
+error_grouping_timeout:
+error_grouping_log_base:
+sycamore_enabled:
+project_news_enabled:
+project_news_feed_urls:
+community_news_enabled:
+community_news_feed_urls:
+denylisted_feeds:
+filestore_path:
+tagline_prefix:
+modelling_analysis_enabled:
+allow_publications_fulltext:
+allow_edit_of_registered_publ:
+human_diseases_enabled:
+jerm_enabled:
+email_enabled:
+jws_enabled:
+copasi_enabled:
+external_search_enabled:
+piwik_analytics_enabled:
+piwik_analytics_tracking_notice:
+custom_analytics_snippet_enabled:
+custom_analytics_snippet:
+custom_analytics_tracking_notice:
+custom_analytics_name:
+seek_video_link:
+scales:
+delete_asset_version_enabled:
+recaptcha_enabled:
+project_browser_enabled:
+project_single_page_enabled:
+isa_json_compliance_enabled:
+project_single_page_folders_enabled:
+experimental_features_enabled:
+pdf_conversion_enabled:
+admin_impersonation_enabled:
+auth_lookup_enabled:
+guide_box_enabled:
+documentation_enabled:
+tagging_enabled:
+authorization_checks_enabled:
+assay_type_ontology_file:
+technology_type_ontology_file:
+modelling_analysis_type_ontology_file:
+assay_type_base_uri:
+technology_type_base_uri:
+modelling_analysis_type_base_uri:
+header_tagline_text_enabled:
+related_items_limit:
+  convert: :to_i
+css_appended:
+css_prepended:
+javascript_appended:
+javascript_prepended:
+main_layout:
+profile_select_by_default:
+recaptcha_public_key:
+recaptcha_private_key:
+support_email_address:
+show_as_external_link_enabled:
+doi_minting_enabled:
+datacite_username:
+datacite_password:
+  encrypt: true
+datacite_url:
+doi_prefix:
+doi_suffix:
+max_extractable_spreadsheet_size:
+jvm_memory_allocation:
+max_indexable_text_size:
+show_announcements:
+imprint_enabled:
+imprint_description:
+zenodo_publishing_enabled:
+zenodo_api_url:
+zenodo_oauth_url:
+zenodo_client_id:
+zenodo_client_secret:
+programme_user_creation_enabled:
+programmes_open_for_projects_enabled:
+cache_remote_files:
+orcid_required:
+max_cachable_size:
+  convert: :to_i
+hard_max_cachable_size:
+  convert: :to_i
+tag_threshold:
+  convert: :to_i
+max_visible_tags:
+  convert: :to_i
+piwik_analytics_id_site:
+  convert: :to_i
+project_news_number_of_entries:
+  convert: :to_i
+community_news_number_of_entries:
+  convert: :to_i
+recent_contributions_number_of_entries:
+  convert: :to_i
+home_feeds_cache_timeout:
+  convert: :to_i
+time_lock_doi_for:
+  convert: :to_i
+default_associated_projects_access_type:
+  convert: :to_i
+default_all_visitors_access_type:
+  convert: :to_i
+default_project_members_access_type:
+  convert: :to_i
+max_all_visitors_access_type:
+  convert: :to_i
+news_enabled:
+news_feed_urls:
+news_number_of_entries:
+  convert: :to_i
+home_show_features:
+home_show_quickstart:
+home_show_my_items:
+home_show_who_uses:
+home_explore_projects:
+home_show_integrations:
+home_carousel:
+permissions_popup:
+  convert: :to_i
+auth_lookup_update_batch_size:
+  convert: :to_i
+project_admin_sample_type_restriction:
+openbis_enabled:
+openbis_download_limit:
+openbis_debug:
+openbis_autosync:
+openbis_check_new_arrivals:
+default_license:
+recommended_data_licenses:
+recommended_software_licenses:
+about_page_enabled:
+about_page:
+about_instance_link_enabled:
+about_instance_admins_link_enabled:
+cite_link:
+contact_link:
+funding_link:
+terms_enabled:
+terms_page:
+privacy_enabled:
+privacy_page:
+nels_enabled:
+nels_client_id:
+nels_client_secret:
+nels_api_url:
+nels_oauth_url:
+nels_permalink_base:
+nels_use_dummy_client:
+allow_private_address_access:
+session_store_timeout:
+filtering_enabled:
+sorting:
+results_per_page_default:
+  convert: :to_i
+results_per_page_default_condensed:
+  convert: :to_i
+results_per_page:
+# Types enabled
+data_files_enabled:
+documents_enabled:
+events_enabled:
+isa_enabled:
+models_enabled:
+organisms_enabled:
+programmes_enabled:
+managed_programme_id:
+presentations_enabled:
+publications_enabled:
+samples_enabled:
+sops_enabled:
+workflows_enabled:
+collections_enabled:
+file_templates_enabled:
+placeholders_enabled:
+# Omniauth
+omniauth_enabled:
+omniauth_user_create:
+omniauth_user_activate:
+omniauth_elixir_aai_enabled:
+omniauth_elixir_aai_client_id:
+omniauth_elixir_aai_secret:
+  encrypt: true
+omniauth_ldap_enabled:
+omniauth_ldap_config:
+  encrypt: true
+omniauth_github_enabled:
+omniauth_github_client_id:
+omniauth_github_secret:
+  encrypt: true
+ga4gh_trs_api_enabled:
+search_results_limit:
+  convert: :to_i
+life_monitor_enabled:
+life_monitor_url:
+life_monitor_client_id:
+life_monitor_client_secret:
+life_monitor_ui_url:
+galaxy_instance_name:
+galaxy_instance_trs_import_url:
+# Controlled vocabs
+cv_dropdown_limit:
+  convert: :to_i
+tag_cloud_enabled:
+workflow_class_list_enabled:
+git_support_enabled:
+immediate_git_fetch:
+home_description_position:
+observed_variables_enabled:
+observed_variable_sets_enabled:
+fair_signposting_enabled:
+bio_tools_enabled:
+require_cookie_consent:
+galaxy_tool_sources:
+metadata_license:
+regular_job_offset:
+  convert: :to_i
+auto_activate_programmes:
+auto_activate_site_managed_projects:
+fhir_enabled:

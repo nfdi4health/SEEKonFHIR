@@ -1,0 +1,142 @@
+<% remote ||= false %>
+
+<%= form_for(@sample_controlled_vocab, remote: remote) do |f| %>
+
+  <span id="controlled-vocab-errors">
+        <%= f.error_messages %>
+    </span>
+
+  <div class="form-group">
+    <label>Title</label><%= required_span %>
+    <%= f.text_field :title, :class => 'form-control', :placeholder => 'Controlled vocabulary name' %>
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <%= f.text_area :description, :class=>"form-control rich-text-edit-deferred short-editor" -%>
+  </div>
+
+  <%= panel('Ontology') do %>
+
+    <div class="help-block">
+      You can, optionally, populate the terms from an ontology available from the <%= link_to('Ontology Lookup Service',"#{Ebi::OlsClient::ROOT_URL}",target: :_blank) %>.
+      To do so, select the ontology below, and then choose the root term - from which itself and all children will be added to the terms. You can choose the root term by following the
+      link provide to browse the ontology.
+      <br/>
+      Then click Fetch to populate the terms below. Note that for a large tree this can take several minutes. Afterwards you can remove or tweak individual terms, or add additional terms.
+      <br/>
+      If you wish to generate an Controlled Vocabularly for an ontology that isn't available on the Ontology Lookup Service, then please contact us using the
+      <%= link_to 'Feedback Form',feedback_home_path %>.
+    </div>
+
+    <div class="form-group">
+      <label>Ontology</label>
+      <%= select_cv_source_ontology(@sample_controlled_vocab) %>
+      <br/>
+
+      <div id='ontology-root-uri' style="display:none;">
+        <div class="help-block">
+          You have selected the <a id="selected-ols-link" href="" target="_blank"></a> ontology,
+          click the link to browse on the Ontology Lookup Service in another tab and find the suitable root term URI.
+          You should then copy that URI into the field below.
+          If you wish to include terms from more than one root, then add the URI's separated by a comma (,).
+        </div>
+
+        <div>
+          <label>Root terms</label>
+          <%= f.text_field :ols_root_term_uris, :class => 'form-control', :placeholder => 'e.g. http://www.ebi.ac.uk/efo/EFO_0000635' %>
+        </div>
+
+        <div class="checkbox">
+          <label>
+            <%= check_box_tag(:include_root_term, '1', false, name: nil, autocomplete: 'off') %>
+            <strong>Include root terms?</strong>
+            <p class="help-block">If checked, the selected roots term will be included in the list of options. Otherwise, only children of the root terms will be included.</p>
+          </label>
+        </div>
+
+        <div>
+          <%= submit_tag 'Fetch', id: 'fetch-ontology-terms-submit', :class => 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= panel('Terms') do %>
+
+    <span id='fetch-terms-spinner'></span>
+    <div id='fetch-error-message' class="alert alert-danger" style="display:none;"></div>
+
+    <div id='controlled-vocab-terms'>
+      <div id='controlled-vocab-terms-fixed'>
+        <table id='new-terms' class='table'>
+          <thead>
+          <th>Label<span class="required">*</span></th>
+          <th>URI</th>
+          <th>Parent URI</th>
+          <th></th>
+          </thead>
+          <tbody>
+          <% @sample_controlled_vocab.sample_controlled_vocab_terms.each_with_index do |term, index| %>
+            <% if term.ontology_based? %>
+              <%= render partial:'sample_controlled_vocabs/term_form_row_disabled', locals:{index: index, term: term} %>
+            <% else %>
+              <%= render partial:'sample_controlled_vocabs/term_form_row', locals:{index: index, term: term} %>
+            <% end %>
+          <% end %>
+          <tr id='add-term-button-row'>
+
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <%= button_link_to('Add new term', 'add', '#', id: 'add-term') %>
+        <%= button_link_to('Remove all terms', 'destroy', '#', :id => 'clear-terms', class:'btn btn-danger') %>
+      </div>
+    </div>
+  <% end %>
+
+
+  <div class="actions">
+    <%= f.submit (@sample_controlled_vocab.new_record? ? 'Create' : 'Update'), :class => 'btn btn-primary', id: 'submit-button' %>
+    <% unless remote %>
+      or
+      <%= cancel_button(@sample_controlled_vocab.new_record? ? sample_controlled_vocabs_path : sample_controlled_vocab_path(@sample_controlled_vocab)) %>
+    <% end %>
+  </div>
+
+<% end %>
+
+<table id="new-term-row" style="display: none">
+  <tbody>
+  <tr class="sample-cv-term success" data-index="--index--">
+    <td>
+      <input class="form-control" id="sample_controlled_vocab_sample_controlled_vocab_terms_attributes_--index--_label" name="sample_controlled_vocab[sample_controlled_vocab_terms_attributes][--index--][label]" type="text">
+    </td>
+    <td>
+      <input class="form-control" id="sample_controlled_vocab_sample_controlled_vocab_terms_attributes_--index--_iri" name="sample_controlled_vocab[sample_controlled_vocab_terms_attributes][--index--][iri]" type="text">
+    </td>
+    <td>
+      <input class="form-control" id="sample_controlled_vocab_sample_controlled_vocab_terms_attributes_--index--_parent_iri" name="sample_controlled_vocab[sample_controlled_vocab_terms_attributes][--index--][parent_iri]" type="text">
+    </td>
+    <td>
+      <div class="btn-group" data-toggle="buttons">
+        <%= hidden_field_tag "sample_controlled_vocab[sample_controlled_vocab_terms_attributes][--index--][_destroy]", '0', :autocomplete => 'off' %>
+        <label class="btn btn-danger">
+          Remove
+          <%= check_box_tag "sample_controlled_vocab[sample_controlled_vocab_terms_attributes][--index--][_destroy]", '1', false,
+                            :class => 'destroy-attribute', :autocomplete => 'off',id:"sample_controlled_vocab-checkbox[sample_controlled_vocab_terms_attributes][--index--][_destroy]" %>
+        </label>
+      </div>
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<script>
+    $j(document).ready(function () {
+        CVTerms.init();
+    });
+</script>

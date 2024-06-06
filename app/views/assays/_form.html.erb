@@ -1,0 +1,106 @@
+<%
+   @assay_text=@assay.is_modelling? ? "#{t('assays.modelling_analysis')}" : "#{t('assays.assay')}"
+   @assay_type_text=@assay.is_modelling? ? "biological problem addressed" : "#{t('assays.assay').downcase} type"
+%>
+
+<%= f.error_messages -%>
+
+<div class="form-group">
+  <label class="required">Title</label>
+  <%= f.text_field :title, :class=>"form-control" -%>
+</div>
+
+<div class="form-group">
+  <%= f.label :description -%><br/>
+  <%= f.text_area :description, :rows => 5, :class=>"form-control rich-text-edit"  -%>
+</div>
+
+<%= render partial: 'extended_metadata/extended_metadata_type_selection', locals:{f:f, resource:@assay} %>
+
+<%= render partial: 'extended_metadata/extended_metadata_attribute_input', locals:{f:f,resource:@assay} %>
+
+<div class="form-group">
+  <label class="required"><%= t('study') -%></label>
+
+  <%= assay_study_selection('assay[study_id]',@assay.study) %>
+</div>
+
+<div class="form-group">
+  <%= f.label "Assay position" -%><br/>
+  <%= f.number_field :position, :rows => 5, :class=>"form-control"  -%>
+</div>
+
+
+<%= f.hidden_field :assay_class_id -%>
+
+<div class="row">
+  <div class="col-sm-<%= @assay.is_modelling? ? '12' : '6' -%>">
+    <div class="form-group">
+      <%= f.label "#{@assay_type_text.capitalize}" %>
+      <%= create_suggested_type_popup_link @assay.assay_type_reader.ontology_term_type %>
+      <div id="assay_<%= @assay.assay_type_reader.ontology_term_type %>_types_list">
+        <%= assay_type_select_tag "assay[assay_type_uri]", @assay.is_modelling?, @assay, {:class => "form-control"} %>
+      </div>
+    </div>
+  </div>
+  <% unless @assay.is_modelling? -%>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= f.label "Technology type" %>
+          <%= create_suggested_type_popup_link @assay.technology_type_reader.ontology_term_type %>
+          <div id="assay_<%= @assay.technology_type_reader.ontology_term_type %>_types_list">
+            <%= technology_type_select_tag "assay[technology_type_uri]", @assay, {:class => "form-control"} %>
+          </div>
+        </div>
+      </div>
+  <% end -%>
+</div>
+
+<% if User.current_user -%>
+    <% if Seek::Config.organisms_enabled %>
+        <div id="add_organism_form">
+          <%= render :partial=>"assays/select_organisms" -%>
+        </div>
+    <% end %>
+
+    <% if Seek::Config.human_diseases_enabled %>
+        <div id="add_human_disease_form">
+          <%= render :partial=>"assays/select_human_diseases" -%>
+        </div>
+    <% end %>
+
+    <%= render partial: 'assets/manage_specific_attributes', locals:{f:f} if show_form_manage_specific_attributes? %>
+
+    <% if @assay.is_taggable? %>
+        <%= render :partial=>"assets/select_tags" %>
+    <% end %>
+
+    <%= render :partial=>"samples/associate_sample",:locals=>{:f=>f, :resource => @assay} %>
+
+    <%= f.fancy_multiselect(:sops, other_projects_checkbox: true) %>
+
+    <% if @assay.is_modelling? %>
+        <%= f.fancy_multiselect :models, other_projects_checkbox: true %>
+    <% end -%>
+
+    <%= render :partial => "assets/associate_placeholder",:locals=>{:f=>f, :resource => @assay,
+    :has_relationships => @assay.is_modelling?,
+    :has_direction => !@assay.is_modelling?} -%>
+
+    <%= render :partial => "assets/associate_data_file_with_assay", :locals=>{ :f=>f, :resource => @assay,
+  :has_relationships => @assay.is_modelling?,
+  :has_direction => !@assay.is_modelling?} -%>
+
+    <%= f.fancy_multiselect :publications, { other_projects_checkbox: true } %>
+
+    <%= f.fancy_multiselect :documents, { other_projects_checkbox: true } %>
+<% end -%>
+
+<%= render :partial=> "assets/discussion_links_form", :locals=>{:resource => @assay} -%>
+
+<%= form_submit_buttons(@assay) %>
+
+
+<%= render partial: 'projects/implicit_project_selector', locals: { action: action,
+                                                                    select_id: '#assay_study_id',
+                                                                    parents: Study.authorized_for('edit') } %>

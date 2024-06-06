@@ -1,0 +1,9 @@
+<% if current_user && object.subscribable? -%>
+  <% if object.subscribed? %>
+    <%= button_link_to 'Unsubscribe', 'unsubscribe', object.current_users_subscription, method: :delete -%>
+  <% else %>
+    <%= button_link_to 'Subscribe', 'subscribe',
+                       subscriptions_path(subscription: { subscribable_id: object.id,
+                                                          subscribable_type: object.class.name }), method: :post -%>
+  <% end %>
+<% end %>

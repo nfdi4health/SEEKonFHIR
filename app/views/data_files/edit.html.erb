@@ -1,0 +1,51 @@
+<% current_user_authorized_to_manage = @data_file.can_manage? -%>
+<h1>Editing <%= t('data_file') %>: <%= link_to(h(@data_file.title), data_file_path(@data_file)) -%></h1>
+
+<%= form_for(@data_file) do |f| %>
+    <div class="asset_form">
+      <%= f.error_messages %>
+
+      <div class="form-group">
+        <label class="required">Title</label>
+        <%= f.text_field :title, :class=>"form-control" -%>
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <%= f.text_area :description, :class=>"form-control rich-text-edit", :rows => 5 -%>
+      </div>
+
+      <%= render partial: 'extended_metadata/extended_metadata_type_selection', locals: { f: f, resource: @data_file } %>
+      <%= render partial: 'extended_metadata/extended_metadata_attribute_input', locals: { f: f, resource: @data_file } %>
+
+      <div class="form-group">
+        <div class='help-block'>Check this box if this data is the result of a model simulation</div>
+        <label>
+          <%= f.check_box :simulation_data %>
+          Model simulation data
+        </label>
+
+      </div>
+
+      <% if Seek::Config.file_templates_enabled %>
+        <%= render :partial => "assets/select_template", :locals => {:resource => (@data_file ? @data_file : DataFile.new),
+	:templates => authorised_assets(FileTemplate, nil, 'edit') } %>
+      <% end %>
+      
+      <%= render :partial => 'assets/controlled_vocab_annotations_form_properties', :locals => { :resource => (@data_file ? @data_file : DataFile.new) } -%>
+
+      <%= render :partial => 'assets/license_selector', :locals => { :resource => @data_file } %>
+
+      <%= render :partial=> "assets/discussion_links_form", :locals=>{:resource => @data_file} -%>
+
+      <%= render :partial=>"assets/asset_form_bottom", :locals=> { :f => f } -%>
+
+      <%= render :partial => "assays/associate_assays", :locals=>{:resource => @data_file} -%>
+
+      <%= f.fancy_multiselect :events, { other_projects_checkbox: true, sort_by: :start_date } if Seek::Config.events_enabled %>
+
+      <%= render partial: 'associate_workflow', locals: {:f=>f, :resource => @data_file } if Seek::Config.workflows_enabled %>
+
+      <%= form_submit_buttons(@data_file) %>
+    </div>
+<% end %>

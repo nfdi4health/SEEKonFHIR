@@ -1,0 +1,114 @@
+<%= javascript_include_tag "projects" %>
+
+<%= f.error_messages %>
+
+<div class="help-block">
+  A project may also be <a href="./guided_import">imported</a> from a Data Management Plan (DMP) file.
+</div>
+
+<div class="form-group">
+  <%= f.label :title, class: 'required' -%>
+  <%= f.text_field :title, :class=>"form-control"-%>
+</div>
+
+<div class="form-group">
+  <%= f.label :description -%>
+  <%= f.text_area :description, :rows => 5, :class=>"form-control rich-text-edit" -%>
+</div>
+
+<%= render partial: 'extended_metadata/extended_metadata_type_selection', locals: {f: f, resource: @project } %>
+<%= render partial: 'extended_metadata/extended_metadata_attribute_input', locals: {f: f, resource: @project } %>
+
+
+<%= render partial: 'assets/controlled_vocab_annotations_form_properties', locals: { resource: @project } %>
+
+<div class="form-group">
+  <%= f.label :funding_codes -%>
+  <%= tags_input('project[funding_codes]', @project.funding_codes, typeahead: false, placeholder: 'Type the code and then select or hit Enter', class: 'form-control') %>
+</div>
+
+<div class="form-group">
+  <%= f.label "Public Web page"-%>
+  <%= f.text_field :web_page, :class=>"form-control" -%>
+</div>
+
+<div class="form-group">
+  <%= f.label "Internal Web page" -%>
+  <%= f.text_field :wiki_page, :class=>"form-control" -%>
+</div>
+
+
+<div class="form-group">
+  <div class="row">
+    <div class="col-md-2">
+    <%= f.label :start_date %>
+    <%= f.text_field :start_date, data: { calendar: 'day' }, class: 'calendar form-control' %>
+    </div>
+    <div class="col-md-2">
+    <%= f.label :end_date %>
+    <%= f.text_field :end_date, data: { calendar: 'day' }, class: 'calendar form-control' %>
+    </div>
+  </div>
+
+</div>
+
+<% if Seek::Config.programmes_enabled &&
+    (admin_or_programme_administrator_logged_in? ||
+        (logged_in_and_registered? && Programme.any_programmes_open_for_projects? ))%>
+    <%= render :partial=>"projects/programme_selection", :locals=>{:f=>f} -%>
+<% end %>
+
+<% unless project %>
+    <%= render :partial=> "projects/select_add_current_user_to_project" %>
+<% end %>
+
+<%= f.fancy_multiselect :organisms, { possibilities: Organism.order(:title).all, hidden: false } %>
+
+<%= f.fancy_multiselect :human_diseases, { possibilities: HumanDisease.order(:title).all, with_new_link: true, hidden: false } %>
+
+<% if @project.can_manage? %>
+    <%= render :partial => 'assets/license_selector', :locals => { :resource => @project, :label=>"Default License",:accessor=>:default_license } %>
+
+    <%= folding_panel('Default Sharing Policy', false, id: 'sharing_form',
+                      help_text: "Here you can choose to configure a default sharing policy that is applied to new resources created as part of this #{t('project').downcase}.") do %>
+        <% if @project.new_record? %>
+            <div class="alert alert-warning">
+              To configure a default sharing policy, please finish creating the <%= t('project').downcase -%> then visit the "Edit <%= t('project') -%> Details" page.
+            </div>
+        <% else %>
+            <div class="alert alert-info">
+              Here you can choose to configure a default sharing policy that is applied to new resources created as part of this <%= t('project').downcase -%>.
+            </div>
+            <div class="checkbox">
+              <label>
+                <%= f.check_box(:use_default_policy, autocomplete: 'off', onchange: toggle_appear_javascript('default-sharing-form')) %> <strong>Enable default policy</strong>
+              </label>
+            </div>
+
+            <div id="default-sharing-form" style="<%= show_or_hide_block(@project.use_default_policy) -%>;">
+              <%= render partial: 'sharing/permissions_table', locals: { object: @project, policy: @project.default_policy || Policy.default, projects: [@project], downloadable: true } %>
+            </div>
+        <% end %>
+    <% end %>
+<% end %>
+
+<% if admin_logged_in? && Seek::Config.nels_enabled %>
+  <%= folding_panel('NeLS Settings', false, id: 'nels_admin_section') do %>
+    <span class="subtle">(Only visible to administrators)</span>
+    <div class="alert alert-info">
+      <p>This option allows members of the <%= t('project') -%> to use the <%=link_to "Norwegian e-Infrastructure for Life Sciences (NeLS)", "https://nels.bioinfo.no/" %>.</p>
+      <p>It is only available to members that have an account that gives you access to its services.</p>
+    </div>
+
+    <div class="checkbox">
+      <label>
+        <%= f.check_box(:nels_enabled, autocomplete: 'off') %> <strong>Enable NeLS Integration</strong>
+      </label>
+    </div>
+  <% end %>
+<% end %>
+
+<%= render :partial=> "assets/discussion_links_form", :locals=>{:resource => @project} -%>
+
+<%= f.submit(project ? "Update" : "Create",data: { disable_with: (project ? "Updating..." : "Creating...") }, :class => 'btn btn-primary') -%>
+ or <%= cancel_button(project ? project_path(project.id) : projects_path) -%>

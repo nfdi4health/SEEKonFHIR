@@ -1,0 +1,2 @@
+<% item = resource.respond_to?(:owner) && resource.owner.try(:can_view?) ? resource.owner : resource %>
+<%= favouritable_icon(item, 60) -%>

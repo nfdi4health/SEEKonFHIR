@@ -1,0 +1,83 @@
+{
+  "data": {
+    "id": "20",
+    "type": "events",
+    "attributes": {
+      "policy": {
+        "access": "no_access",
+        "permissions": [
+          {
+            "resource": {
+              "id": "459",
+              "type": "projects"
+            },
+            "access": "edit"
+          }
+        ]
+      },
+      "title": "A Maximally Patched Event",
+      "description": "A thing happening",
+      "url": "http://www.example.com/events/123",
+      "address": "Sofienstr 2",
+      "city": "Heidelberg",
+      "country": "Germany",
+      "start_date": "2017-01-01T00:20:00.000Z",
+      "end_date": "2017-01-01T00:22:00.000Z"
+    },
+    "relationships": {
+      "submitter": {
+        "data": [
+          {
+            "id": "424",
+            "type": "people"
+          }
+        ]
+      },
+      "projects": {
+        "data": [
+          {
+            "id": "459",
+            "type": "projects"
+          }
+        ]
+      },
+      "data_files": {
+        "data": [
+          {
+            "id": "28",
+            "type": "data_files"
+          }
+        ]
+      },
+      "publications": {
+        "data": [
+          {
+            "id": "34",
+            "type": "publications"
+          }
+        ]
+      },
+      "presentations": {
+        "data": [
+          {
+            "id": "20",
+            "type": "presentations"
+          }
+        ]
+      }
+    },
+    "links": {
+      "self": "/events/20"
+    },
+    "meta": {
+      "created": "2022-06-07T14:13:27.000Z",
+      "modified": "2022-06-07T14:13:27.000Z",
+      "api_version": "0.3",
+      "base_url": "http://localhost:3000",
+      "uuid": "ecc58c30-c899-013a-0f7e-0a81884ed284"
+    }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

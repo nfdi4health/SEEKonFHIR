@@ -1,0 +1,18 @@
+<% if attachments.empty? %>
+  <span class="none_text">No attachments</span>
+<% else %>
+  <ul class="attachments_list">
+    <% attachments.each do |a| %>
+      <li>
+        <%= link_to "#{a.filename} - #{a.title} (#{number_to_human_size(a.size)})", download_help_document_help_attachment_path(@help_document,a) -%>
+        <%= link_to(image('new', :title => "Insert link to attachment", :alt => "Insert link to attachment"), "#", :onclick => "insertAtCursor('help_document_body',\"\\\"#{a.title || a.filename}\\\":#{download_help_document_help_attachment_path(@help_document,a)}\"); return false;") %>
+        <%= link_to(image('destroy', alt: 'Delete', title: 'Delete attachment'),
+                    help_document_help_attachment_path(@help_document, a),
+                    data: { confirm: 'Are you sure you wish to delete this attachment?' }, remote: true, method: :delete,
+                    class: 'delete-help-attachment') %>
+
+        <%= image_tag "ajax-loader.gif", :id => "attachment_spinner_#{a.id}", :style => 'display:none;' -%>
+      </li>
+    <% end %>
+  </ul>   
+<% end %>

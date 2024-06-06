@@ -1,0 +1,48 @@
+{
+  "data": {
+    "type": "samples",
+    "attributes": {
+      "attribute_map": {
+        "full_name": "Fred Bloggs",
+        "address": "HD",
+        "postcode": "M13 9PL",
+        "CAPITAL key": "key must remain capitalised",
+        "apple": "Bramley",
+        "apples": ["Golden Delicious", "Granny Smith"]
+      },
+      "tags": ["tag1", "tag2"]
+    },
+    "relationships": {
+      "sample_type": {
+        "data": {
+          "id": "<%= @sample_type.id %>",
+          "type": "sample_types"
+        }
+      },
+      "creators": {
+        "data": [
+          {
+            "id": "<%= current_person.id %>",
+            "type": "people"
+          }
+        ]
+      },
+      "projects": {
+        "data": [
+          {
+            "id": "<%= @project.id %>",
+            "type": "projects"
+          }
+        ]
+      },
+      "assays": {
+        "data": [
+          {
+            "id": "<%= @assay.id %>",
+            "type": "assays"
+          }
+        ]
+      }
+    }
+  }
+}

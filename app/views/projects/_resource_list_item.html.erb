@@ -1,0 +1,30 @@
+<%= list_item_description resource.description %>
+
+<div class="row">
+  <div class="col-sm-6">
+    <%= list_item_programme_attribute(resource) if Seek::Config.programmes_enabled %>
+    <%= list_item_optional_attribute "Public web page", h(resource.web_page), h(resource.web_page) %>
+
+    <% unless hide_contact_details?(resource) %>
+        <%= list_item_optional_attribute "Internal web page", h(resource.wiki_page), h(resource.wiki_page) %>
+    <% end %>
+
+    <% if resource.start_date %>
+      <%= list_item_attribute('Start date',date_as_string(resource.start_date,false)) %>
+    <% end %>
+
+    <% if resource.end_date %>
+      <%= list_item_attribute('End date',date_as_string(resource.end_date,false)) %>
+    <% end %>
+
+
+  </div>
+
+  <div class="col-sm-6 hidden-xs">
+    <%= list_item_simple_list resource.organisms, "Organisms" %>
+
+    <% if Seek::Config.human_diseases_enabled and !resource.human_diseases.empty? %>
+      <%= list_item_simple_list resource.human_diseases, "Human Diseases" %>
+    <% end %>
+  </div>
+</div>

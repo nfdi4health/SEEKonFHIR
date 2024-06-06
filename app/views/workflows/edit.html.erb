@@ -1,0 +1,52 @@
+<h1>Editing <%= t('workflow') %>: <%= link_to(h(@workflow.title), workflow_path(@workflow)) -%></h1>
+
+<%= form_for(@workflow) do |f| %>
+  <div class="asset_form">
+    <%= f.error_messages %>
+
+    <div class="form-group">
+      <%= render partial: 'workflow_class_form', locals: { name: 'workflow[workflow_class_id]', selected: @workflow.workflow_class_id } %>
+    </div>
+
+    <div class="form-group">
+      <label>Title <span class="required">*</span></label>
+      <%= f.text_field :title, class: 'form-control' -%>
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <%= f.text_area :description, rows: 5, class: 'form-control rich-text-edit' -%>
+    </div>
+
+    <div class="form-group">
+      <label>Source</label>
+      <%= f.text_field :source_link_url, placeholder: 'https://...', class: 'form-control' -%>
+      <p class="help-block">If this workflow came from an external repository (i.e. GitHub), you can include its original URL here.</p>
+    </div>
+
+    <%= render partial: 'assets/controlled_vocab_annotations_form_properties', locals: { resource: @workflow } %>
+
+    <div class="form-group">
+      <label>Maturity</label>
+      <%= f.select :maturity_level, Workflow::MATURITY_LEVELS.values.map { |k| [t("maturity_level.#{k}"), k] }, { include_blank: 'Not specified' }, class: 'form-control' -%>
+      <p class="help-block">This field is used to indicate to users what level of stability they can expect from the workflow.</p>
+    </div>
+
+    <%= render partial: 'assets/license_selector', locals: { resource: @workflow, license_group: :software, default_license: 'Apache-2.0' } %>
+    <%= render partial: 'assets/discussion_links_form', locals: { resource: @workflow} -%>
+    <%= render partial: 'sharing/form' -%>
+    <%= render partial: 'assets/asset_form_bottom', locals: { f: f }-%>
+    <%= render partial: 'assays/associate_assays', locals: { resource: @workflow } -%>
+
+    <%= hidden_field_tag 'workflow[internals]', raw(@workflow.internals.to_json) -%>
+
+    <%= f.fancy_multiselect :presentations, other_projects_checkbox: true %>
+    <%= f.fancy_multiselect :documents, other_projects_checkbox: true  if Seek::Config.documents_enabled %>
+    <%= render partial: 'associate_data_file', locals: {:f=>f, :resource => @workflow } if Seek::Config.data_files_enabled %>
+    <%= render partial: 'tools/associate_tools', locals: { f: f, resource: @workflow } if Seek::Config.bio_tools_enabled %>
+
+    <%= form_submit_buttons(@workflow) %>
+  </div>
+<% end %>
+
+<%= render partial: 'workflows/workflow_class_modal' %>

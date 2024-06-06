@@ -1,0 +1,1125 @@
+{
+  "_embedded" : {
+    "ontologies" : [ {
+      "languages" : [ "en", "en-us", "zh" ],
+      "lang" : "en",
+      "ontologyId" : "ado",
+      "loaded" : "2023-10-18T18:11:43.593647520",
+      "updated" : "2023-10-18T18:11:43.593647520",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : "2.0.1",
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 1963,
+      "numberOfProperties" : 186,
+      "numberOfIndividuals" : 2,
+      "config" : {
+        "id" : "ado",
+        "versionIri" : "http://purl.obolibrary.org/obo/ado/releases/2023-09-20/ado.owl",
+        "namespace" : "ado",
+        "preferredPrefix" : "ADO",
+        "title" : "Alzheimer's Disease Ontology (ADO)",
+        "description" : "Alzheimer's Disease Ontology is a knowledge-based ontology that encompasses varieties of concepts related to Alzheimer'S Disease, foundamentally structured by upper level Basic Formal Ontology(BFO). This Ontology is enriched by the interrelational entities that demonstrate the nextwork of the understanding on Alzheimer's disease and can be readily applied for text mining.",
+        "homepage" : "https://github.com/Fraunhofer-SCAI-Applied-Semantics/ADO",
+        "version" : "2.0.1",
+        "mailingList" : null,
+        "tracker" : "https://github.com/Fraunhofer-SCAI-Applied-Semantics/ADO/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/ado.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/ado?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/ado/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/ado/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/ado/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "de", "en", "es", "fr" ],
+      "lang" : "en",
+      "ontologyId" : "agro",
+      "loaded" : "2023-10-18T18:11:44.501087090",
+      "updated" : "2023-10-18T18:11:44.501087090",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : null,
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 4162,
+      "numberOfProperties" : 293,
+      "numberOfIndividuals" : 552,
+      "config" : {
+        "id" : "agro",
+        "versionIri" : "http://purl.obolibrary.org/obo/agro/releases/2022-11-02/agro.owl",
+        "namespace" : "agro",
+        "preferredPrefix" : "AGRO",
+        "title" : "Agronomy Ontology",
+        "description" : "AgrO is an ontlogy for representing agronomic practices, techniques, variables and related entities",
+        "homepage" : "https://github.com/AgriculturalSemantics/agro",
+        "version" : null,
+        "mailingList" : null,
+        "tracker" : "https://github.com/AgriculturalSemantics/agro/issues/",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/agro.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/agro?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/agro/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/agro/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/agro/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en", "es" ],
+      "lang" : "en",
+      "ontologyId" : "aism",
+      "loaded" : "2023-10-18T18:11:46.765563456",
+      "updated" : "2023-10-18T18:11:46.765563456",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : "2023-04-14",
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 7443,
+      "numberOfProperties" : 547,
+      "numberOfIndividuals" : 18,
+      "config" : {
+        "id" : "aism",
+        "versionIri" : "http://purl.obolibrary.org/obo/aism/releases/2023-04-14/aism.owl",
+        "namespace" : "aism",
+        "preferredPrefix" : "AISM",
+        "title" : "Ontology for the Anatomy of the Insect SkeletoMuscular system",
+        "description" : "The ontology for the Anatomy of the Insect SkeletoMuscular system (AISM) contains terms used to describe the cuticle - as a single anatomical structure - and the skeletal muscle system, to be used in insect biodiversity research.",
+        "homepage" : "https://github.com/insect-morphology/aism",
+        "version" : "2023-04-14",
+        "mailingList" : null,
+        "tracker" : "https://github.com/insect-morphology/aism/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/aism.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/aism?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/aism/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/aism/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/aism/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en" ],
+      "lang" : "en",
+      "ontologyId" : "amphx",
+      "loaded" : "2023-10-18T18:11:49.799518823",
+      "updated" : "2023-10-18T18:11:49.799518823",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : null,
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 403,
+      "numberOfProperties" : 10,
+      "numberOfIndividuals" : 0,
+      "config" : {
+        "id" : "amphx",
+        "versionIri" : "http://purl.obolibrary.org/obo/amphx/releases/2020-12-18/amphx.owl",
+        "namespace" : "amphx",
+        "preferredPrefix" : "AMPHX",
+        "title" : "Amphioxus Development and Anatomy Ontology (AMPHX)",
+        "description" : "An ontology for the development and anatomy of Amphioxus (Branchiostoma lanceolatum).",
+        "homepage" : "https://github.com/EBISPOT/amphx_ontology",
+        "version" : null,
+        "mailingList" : null,
+        "tracker" : "https://github.com/EBISPOT/amphx_ontology/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/amphx.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ "http://purl.obolibrary.org/obo/IAO_0000115" ],
+        "synonymProperties" : [ "http://www.geneontology.org/formats/oboInOwl#hasExactSynonym" ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ "http://purl.obolibrary.org/obo/AMPHX_" ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ "http://purl.obolibrary.org/obo/AMPHX_" ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/amphx?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/amphx/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/amphx/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/amphx/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en" ],
+      "lang" : "en",
+      "ontologyId" : "apo",
+      "loaded" : "2023-10-18T18:11:49.940743272",
+      "updated" : "2023-10-18T18:11:49.940743272",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : "2023-10-03",
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 619,
+      "numberOfProperties" : 27,
+      "numberOfIndividuals" : 0,
+      "config" : {
+        "id" : "apo",
+        "versionIri" : "http://purl.obolibrary.org/obo/apo/releases/2023-10-03/apo.owl",
+        "namespace" : "apo",
+        "preferredPrefix" : "APO",
+        "title" : "Ascomycete Phenotype Ontology (APO)",
+        "description" : "A structured controlled vocabulary for the phenotypes of Ascomycete fungi.",
+        "homepage" : "http://www.yeastgenome.org/",
+        "version" : "2023-10-03",
+        "mailingList" : null,
+        "tracker" : "https://github.com/obophenotype/ascomycete-phenotype-ontology/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/apo.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/apo?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/apo/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/apo/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/apo/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "de", "en", "en-us" ],
+      "lang" : "en",
+      "ontologyId" : "apollo_sv",
+      "loaded" : "2023-10-18T18:11:50.163793124",
+      "updated" : "2023-10-18T18:11:50.163793124",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : "2023-01-10",
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 1691,
+      "numberOfProperties" : 366,
+      "numberOfIndividuals" : 27,
+      "config" : {
+        "id" : "apollo_sv",
+        "versionIri" : "http://purl.obolibrary.org/obo/apollo_sv/releases/2023-06-02/apollo_sv.owl",
+        "namespace" : "apollo_sv",
+        "preferredPrefix" : "APOLLO_SV",
+        "title" : "Apollo Structured Vocabulary (Apollo-SV)",
+        "description" : "An OWL2 ontology of phenomena in infectious disease epidemiology and population biology for use in epidemic simulation.",
+        "homepage" : "https://github.com/ApolloDev/apollo-sv",
+        "version" : "2023-01-10",
+        "mailingList" : null,
+        "tracker" : "https://github.com/ApolloDev/apollo-sv/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/apollo_sv.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/apollo_sv?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/apollo_sv/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/apollo_sv/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/apollo_sv/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en" ],
+      "lang" : "en",
+      "ontologyId" : "aro",
+      "loaded" : "2023-10-18T18:11:51.106978371",
+      "updated" : "2023-10-18T18:11:51.106978371",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : null,
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 7105,
+      "numberOfProperties" : 25,
+      "numberOfIndividuals" : 0,
+      "config" : {
+        "id" : "aro",
+        "versionIri" : null,
+        "namespace" : "aro",
+        "preferredPrefix" : "ARO",
+        "title" : "Antibiotic Resistance Ontology",
+        "description" : "Antibiotic resistance genes and mutations",
+        "homepage" : "https://github.com/arpcard/aro",
+        "version" : null,
+        "mailingList" : "https://mailman.mcmaster.ca/mailman/listinfo/card-l",
+        "tracker" : "https://github.com/arpcard/aro/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/aro.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/aro?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/aro/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/aro/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/aro/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en", "en-us" ],
+      "lang" : "en",
+      "ontologyId" : "bco",
+      "loaded" : "2023-10-18T18:11:52.539512230",
+      "updated" : "2023-10-18T18:11:52.539512230",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : "2021-11-14",
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 253,
+      "numberOfProperties" : 472,
+      "numberOfIndividuals" : 64,
+      "config" : {
+        "id" : "bco",
+        "versionIri" : "http://purl.obolibrary.org/obo/bco/releases/2021-11-14/bco.owl",
+        "namespace" : "bco",
+        "preferredPrefix" : "BCO",
+        "title" : "Biological Collections Ontology",
+        "description" : "An ontology to support the interoperability of biodiversity data, including data on museum collections, environmental/metagenomic samples, and ecological surveys.",
+        "homepage" : "https://github.com/BiodiversityOntologies/bco",
+        "version" : "2021-11-14",
+        "mailingList" : null,
+        "tracker" : "https://github.com/BiodiversityOntologies/bco/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/bco.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/bco?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/bco/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/bco/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/bco/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en" ],
+      "lang" : "en",
+      "ontologyId" : "bfo",
+      "loaded" : "2023-10-18T18:11:52.648184566",
+      "updated" : "2023-10-18T18:11:52.648184566",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : null,
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 35,
+      "numberOfProperties" : 22,
+      "numberOfIndividuals" : 0,
+      "config" : {
+        "id" : "bfo",
+        "versionIri" : "http://purl.obolibrary.org/obo/bfo/2019-08-26/bfo.owl",
+        "namespace" : "bfo",
+        "preferredPrefix" : "BFO",
+        "title" : "Basic Formal Ontology",
+        "description" : "The upper level ontology upon which OBO Foundry ontologies are built.",
+        "homepage" : "http://ifomis.org/bfo/",
+        "version" : null,
+        "mailingList" : "https://groups.google.com/forum/#!forum/bfo-discuss",
+        "tracker" : "https://github.com/BFO-ontology/BFO/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/bfo.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/bfo?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/bfo/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/bfo/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/bfo/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en" ],
+      "lang" : "en",
+      "ontologyId" : "bspo",
+      "loaded" : "2023-10-18T18:11:52.721317057",
+      "updated" : "2023-10-18T18:11:52.721317057",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : "2023-05-27",
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 169,
+      "numberOfProperties" : 236,
+      "numberOfIndividuals" : 18,
+      "config" : {
+        "id" : "bspo",
+        "versionIri" : "http://purl.obolibrary.org/obo/bspo/releases/2023-05-27/bspo.owl",
+        "namespace" : "bspo",
+        "preferredPrefix" : "BSPO",
+        "title" : "Biological Spatial Ontology",
+        "description" : "An ontology for respresenting spatial concepts, anatomical axes, gradients, regions, planes, sides and surfaces. These concepts can be used at multiple biological scales and in a diversity of taxa, including plants, animals and fungi. The BSPO is used to provide a source of anatomical location descriptors for logically defining anatomical entity classes in anatomy ontologies.",
+        "homepage" : "https://github.com/obophenotype/biological-spatial-ontology",
+        "version" : "2023-05-27",
+        "mailingList" : null,
+        "tracker" : "https://github.com/obophenotype/biological-spatial-ontology/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/bspo.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/bspo?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/bspo/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/bspo/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/bspo/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en" ],
+      "lang" : "en",
+      "ontologyId" : "bto",
+      "loaded" : "2023-10-18T18:11:53.267044890",
+      "updated" : "2023-10-18T18:11:53.267044890",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : null,
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 6569,
+      "numberOfProperties" : 37,
+      "numberOfIndividuals" : 0,
+      "config" : {
+        "id" : "bto",
+        "versionIri" : "http://purl.obolibrary.org/obo/bto/releases/2021-10-26/bto.owl",
+        "namespace" : "bto",
+        "preferredPrefix" : "BTO",
+        "title" : "The BRENDA Tissue Ontology (BTO)",
+        "description" : "A structured controlled vocabulary for the source of an enzyme comprising tissues, cell lines, cell types and cell cultures.",
+        "homepage" : "http://www.brenda-enzymes.org",
+        "version" : null,
+        "mailingList" : null,
+        "tracker" : "https://github.com/BRENDA-Enzymes/BTO/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/bto.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ "http://purl.obolibrary.org/obo/BFO_0000050", "http://purl.obolibrary.org/obo/RO_0002202", "http://purl.obolibrary.org/obo/bto#develops_from", "http://purl.obolibrary.org/obo/bto#related_to" ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/bto?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/bto/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/bto/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/bto/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en" ],
+      "lang" : "en",
+      "ontologyId" : "caro",
+      "loaded" : "2023-10-18T18:11:54.769849148",
+      "updated" : "2023-10-18T18:11:54.769849148",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : "2023-03-15",
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 720,
+      "numberOfProperties" : 279,
+      "numberOfIndividuals" : 0,
+      "config" : {
+        "id" : "caro",
+        "versionIri" : "http://purl.obolibrary.org/obo/caro/releases/2023-03-15/caro.owl",
+        "namespace" : "caro",
+        "preferredPrefix" : "CARO",
+        "title" : "Common Anatomy Reference Ontology",
+        "description" : "The Common Anatomy Reference Ontology (CARO) is being developed to facilitate interoperability between existing anatomy ontologies for different species, and will provide a template for building new anatomy ontologies.",
+        "homepage" : "https://github.com/obophenotype/caro/",
+        "version" : "2023-03-15",
+        "mailingList" : null,
+        "tracker" : "https://github.com/obophenotype/caro/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/caro.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/caro?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/caro/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/caro/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/caro/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en" ],
+      "lang" : "en",
+      "ontologyId" : "cdao",
+      "loaded" : "2023-10-18T18:11:55.203727980",
+      "updated" : "2023-10-18T18:11:55.203727980",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : null,
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 164,
+      "numberOfProperties" : 139,
+      "numberOfIndividuals" : 26,
+      "config" : {
+        "id" : "cdao",
+        "versionIri" : "http://purl.obolibrary.org/obo/cdao/2022-11-30/cdao.owl",
+        "namespace" : "cdao",
+        "preferredPrefix" : "CDAO",
+        "title" : "Comparative Data Analysis Ontology",
+        "description" : "The Comparative Data Analysis Ontology (CDAO) provides a framework for understanding data in the context of evolutionary-comparative analysis.  This comparative approach is used commonly in bioinformatics and other areas of biology to draw inferences from a comparison of differently evolved versions of something, such as differently evolved versions of a protein.  In this kind of analysis, the things-to-be-compared typically are classes called 'OTUs' (Operational Taxonomic Units).  The OTUs can represent biological species, but also may be drawn from higher or lower in a biological hierarchy, anywhere from molecules to communities.  The features to be compared among OTUs are rendered in an entity-attribute-value model sometimes referred to as the 'character-state data model'.  For a given character, such as 'beak length', each OTU has a state, such as 'short' or 'long'.  The differences between states are understood to emerge by a historical process of evolutionary transitions in state, represented by a model (or rules) of transitions along with a phylogenetic tree.  CDAO provides the framework for representing OTUs, trees, transformations, and characters.  The representation of characters and transformations may depend on imported ontologies for a specific type of character.",
+        "homepage" : "https://github.com/evoinfo/cdao",
+        "version" : null,
+        "mailingList" : null,
+        "tracker" : "https://github.com/evoinfo/cdao/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/cdao.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cdao?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cdao/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cdao/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cdao/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en" ],
+      "lang" : "en",
+      "ontologyId" : "cdno",
+      "loaded" : "2023-10-18T18:11:55.781434736",
+      "updated" : "2023-10-18T18:11:55.781434736",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : null,
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 2060,
+      "numberOfProperties" : 259,
+      "numberOfIndividuals" : 44,
+      "config" : {
+        "id" : "cdno",
+        "versionIri" : "http://purl.obolibrary.org/obo/cdno/releases/2022-12-23/cdno.owl",
+        "namespace" : "cdno",
+        "preferredPrefix" : "CDNO",
+        "title" : "Compositional Dietary Nutrition Ontology",
+        "description" : "None",
+        "homepage" : "https://cdno.info/",
+        "version" : null,
+        "mailingList" : null,
+        "tracker" : "https://github.com/Southern-Cross-Plant-Science/cdno/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/cdno.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cdno?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cdno/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cdno/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cdno/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en" ],
+      "lang" : "en",
+      "ontologyId" : "chebi",
+      "loaded" : "2023-10-18T18:12:28.659449675",
+      "updated" : "2023-10-18T18:12:28.659449675",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : null,
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 185295,
+      "numberOfProperties" : 47,
+      "numberOfIndividuals" : 0,
+      "config" : {
+        "id" : "chebi",
+        "versionIri" : "http://purl.obolibrary.org/obo/chebi/226/chebi.owl",
+        "namespace" : "chebi",
+        "preferredPrefix" : "CHEBI",
+        "title" : "Chemical Entities of Biological Interest",
+        "description" : "A structured classification of molecular entities of biological interest focusing on 'small' chemical compounds.",
+        "homepage" : "http://www.ebi.ac.uk/chebi",
+        "version" : null,
+        "mailingList" : null,
+        "tracker" : "https://github.com/ebi-chebi/ChEBI/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/chebi.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/chebi?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/chebi/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/chebi/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/chebi/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en" ],
+      "lang" : "en",
+      "ontologyId" : "cheminf",
+      "loaded" : "2023-10-18T18:13:19.327257442",
+      "updated" : "2023-10-18T18:13:19.327257442",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : "2.1.0",
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 2116,
+      "numberOfProperties" : 515,
+      "numberOfIndividuals" : 20,
+      "config" : {
+        "id" : "cheminf",
+        "versionIri" : null,
+        "namespace" : "cheminf",
+        "preferredPrefix" : "CHEMINF",
+        "title" : "chemical information ontology (cheminf) - information entities about chemical entities",
+        "description" : "Includes terms for the descriptors commonly used in cheminformatics software applications and the algorithms which generate them.",
+        "homepage" : "https://github.com/semanticchemistry/semanticchemistry",
+        "version" : "2.1.0",
+        "mailingList" : "https://groups.google.com/forum/#!forum/cheminf-ontology",
+        "tracker" : "https://github.com/semanticchemistry/semanticchemistry/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/cheminf.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cheminf?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cheminf/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cheminf/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cheminf/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en" ],
+      "lang" : "en",
+      "ontologyId" : "chiro",
+      "loaded" : "2023-10-18T18:13:20.658854077",
+      "updated" : "2023-10-18T18:13:20.658854077",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : null,
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 13279,
+      "numberOfProperties" : 59,
+      "numberOfIndividuals" : 0,
+      "config" : {
+        "id" : "chiro",
+        "versionIri" : "http://purl.obolibrary.org/obo/chiro/releases/2015-11-23/chiro.owl",
+        "namespace" : "chiro",
+        "preferredPrefix" : "CHIRO",
+        "title" : "CHEBI Integrated Role Ontology",
+        "description" : "CHEBI provides a distinct role hierarchy. Chemicals in the structural hierarchy are connected via a 'has role' relation. CHIRO provides links from these roles to useful other classes in other ontologies. This will allow direct connection between chemical structures (small molecules, drugs) and what they do. This could be formalized using 'capable of', in the same way Uberon and the Cell Ontology link structures to processes.",
+        "homepage" : "https://github.com/obophenotype/chiro",
+        "version" : null,
+        "mailingList" : null,
+        "tracker" : "https://github.com/obophenotype/chiro/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/chiro.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/chiro?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/chiro/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/chiro/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/chiro/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en" ],
+      "lang" : "en",
+      "ontologyId" : "chmo",
+      "loaded" : "2023-10-18T18:13:23.040634844",
+      "updated" : "2023-10-18T18:13:23.040634844",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : null,
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 3101,
+      "numberOfProperties" : 64,
+      "numberOfIndividuals" : 0,
+      "config" : {
+        "id" : "chmo",
+        "versionIri" : "http://purl.obolibrary.org/obo/chmo/releases/2022-04-19/chmo.owl",
+        "namespace" : "chmo",
+        "preferredPrefix" : "CHMO",
+        "title" : "Chemical Methods Ontology",
+        "description" : "CHMO, the chemical methods ontology, describes methods used to collect data in chemical experiments, such as mass spectrometry and electron microscopy prepare and separate material for further analysis, such as sample ionisation, chromatography, and electrophoresis synthesise materials, such as epitaxy and continuous vapour deposition It also describes the instruments used in these experiments, such as mass spectrometers and chromatography columns. It is intended to be complementary to the Ontology for Biomedical Investigations (OBI).",
+        "homepage" : "https://github.com/rsc-ontologies/rsc-cmo",
+        "version" : null,
+        "mailingList" : "chemistry-ontologies@googlegroups.com",
+        "tracker" : "https://github.com/rsc-ontologies/rsc-cmo/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/chmo.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/chmo?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/chmo/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/chmo/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/chmo/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en" ],
+      "lang" : "en",
+      "ontologyId" : "cio",
+      "loaded" : "2023-10-18T18:13:30.059564881",
+      "updated" : "2023-10-18T18:13:30.059564881",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : null,
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 44,
+      "numberOfProperties" : 17,
+      "numberOfIndividuals" : 0,
+      "config" : {
+        "id" : "cio",
+        "versionIri" : "http://purl.obolibrary.org/obo/cio/releases/2015-03-10/cio.owl",
+        "namespace" : "cio",
+        "preferredPrefix" : "CIO",
+        "title" : "Confidence Information Ontology",
+        "description" : "An ontology to capture confidence information about annotations.",
+        "homepage" : "https://github.com/BgeeDB/confidence-information-ontology",
+        "version" : null,
+        "mailingList" : null,
+        "tracker" : "https://github.com/BgeeDB/confidence-information-ontology",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/cio.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cio?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cio/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cio/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cio/individuals"
+        }
+      }
+    }, {
+      "languages" : [ "en" ],
+      "lang" : "en",
+      "ontologyId" : "cl",
+      "loaded" : "2023-10-18T18:13:33.078706524",
+      "updated" : "2023-10-18T18:13:33.078706524",
+      "status" : "LOADED",
+      "message" : "",
+      "version" : "2023-09-21",
+      "fileHash" : null,
+      "loadAttempts" : 0,
+      "numberOfTerms" : 16150,
+      "numberOfProperties" : 538,
+      "numberOfIndividuals" : 18,
+      "config" : {
+        "id" : "cl",
+        "versionIri" : "http://purl.obolibrary.org/obo/cl/releases/2023-09-21/cl.owl",
+        "namespace" : "cl",
+        "preferredPrefix" : "CL",
+        "title" : "Cell Ontology",
+        "description" : "An ontology of cell types.",
+        "homepage" : "https://obophenotype.github.io/cell-ontology/",
+        "version" : "2023-09-21",
+        "mailingList" : "https://groups.google.com/g/cl_edit",
+        "tracker" : "https://github.com/obophenotype/cell-ontology/issues",
+        "logo" : null,
+        "creators" : [ ],
+        "annotations" : null,
+        "fileLocation" : "http://purl.obolibrary.org/obo/cl.owl",
+        "oboSlims" : false,
+        "labelProperty" : "http://www.w3.org/2000/01/rdf-schema#label",
+        "definitionProperties" : [ ],
+        "synonymProperties" : [ ],
+        "hierarchicalProperties" : [ ],
+        "baseUris" : [ ],
+        "hiddenProperties" : [ ],
+        "preferredRootTerms" : [ ],
+        "isSkos" : false,
+        "allowDownload" : false
+      },
+      "baseUris" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cl?lang=en"
+        },
+        "terms" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cl/terms"
+        },
+        "properties" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cl/properties"
+        },
+        "individuals" : {
+          "href" : "https://www.ebi.ac.uk/ols4/api/ontologies/cl/individuals"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "first" : {
+      "href" : "https://www.ebi.ac.uk/ols4/api/ontologies?page=0&size=20"
+    },
+    "self" : {
+      "href" : "https://www.ebi.ac.uk/ols4/api/ontologies?page=0&size=20"
+    },
+    "next" : {
+      "href" : "https://www.ebi.ac.uk/ols4/api/ontologies?page=1&size=20"
+    },
+    "last" : {
+      "href" : "https://www.ebi.ac.uk/ols4/api/ontologies?page=12&size=20"
+    }
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 247,
+    "totalPages" : 13,
+    "number" : 0
+  }
+}

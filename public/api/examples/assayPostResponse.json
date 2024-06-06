@@ -1,0 +1,169 @@
+{
+  "data": {
+    "id": "38",
+    "type": "assays",
+    "attributes": {
+      "policy": {
+        "access": "download",
+        "permissions": [
+          {
+            "resource": {
+              "id": "293",
+              "type": "projects"
+            },
+            "access": "manage"
+          }
+        ]
+      },
+      "discussion_links": [
+
+      ],
+      "snapshots": [
+
+      ],
+      "title": "A Maximal experimental Assay",
+      "description": "A Western Blot Assay",
+      "other_creators": "Anonymous creator",
+      "position": null,
+      "assay_class": {
+        "title": "Experimental assay",
+        "key": "EXP",
+        "description": "An experimental assay class description"
+      },
+      "assay_type": {
+        "label": "Transcriptomics",
+        "uri": "http://jermontology.org/ontology/JERMOntology#Transcriptomics"
+      },
+      "technology_type": {
+        "label": "Rna-seq",
+        "uri": "http://jermontology.org/ontology/JERMOntology#RNA-Seq"
+      },
+      "tags": [
+        "alan"
+      ],
+      "creators": [
+        {
+          "profile": "/people/283",
+          "family_name": "Last",
+          "given_name": "Person232",
+          "affiliation": "An Institution: 285",
+          "orcid": null
+        }
+      ]
+    },
+    "relationships": {
+      "creators": {
+        "data": [
+          {
+            "id": "283",
+            "type": "people"
+          }
+        ]
+      },
+      "submitter": {
+        "data": [
+          {
+            "id": "283",
+            "type": "people"
+          }
+        ]
+      },
+      "organisms": {
+        "data": [
+          {
+            "id": "8",
+            "type": "organisms"
+          }
+        ]
+      },
+      "human_diseases": {
+        "data": [
+
+        ]
+      },
+      "people": {
+        "data": [
+          {
+            "id": "283",
+            "type": "people"
+          }
+        ]
+      },
+      "projects": {
+        "data": [
+          {
+            "id": "293",
+            "type": "projects"
+          }
+        ]
+      },
+      "investigation": {
+        "data": {
+          "id": "42",
+          "type": "investigations"
+        }
+      },
+      "study": {
+        "data": {
+          "id": "40",
+          "type": "studies"
+        }
+      },
+      "data_files": {
+        "data": [
+          {
+            "id": "13",
+            "type": "data_files"
+          }
+        ]
+      },
+      "models": {
+        "data": [
+
+        ]
+      },
+      "sops": {
+        "data": [
+          {
+            "id": "17",
+            "type": "sops"
+          }
+        ]
+      },
+      "publications": {
+        "data": [
+          {
+            "id": "19",
+            "type": "publications"
+          }
+        ]
+      },
+      "placeholders": {
+        "data": [
+
+        ]
+      },
+      "documents": {
+        "data": [
+          {
+            "id": "27",
+            "type": "documents"
+          }
+        ]
+      }
+    },
+    "links": {
+      "self": "/assays/38"
+    },
+    "meta": {
+      "created": "2022-06-07T14:13:05.000Z",
+      "modified": "2022-06-07T14:13:05.000Z",
+      "api_version": "0.3",
+      "base_url": "http://localhost:3000",
+      "uuid": "df811940-c899-013a-0f7e-0a81884ed284"
+    }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

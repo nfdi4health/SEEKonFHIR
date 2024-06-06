@@ -1,0 +1,181 @@
+table.sheet {
+  background-color: #69F;
+  table-layout: fixed;
+  width: 1px;
+}
+
+table.sheet tr{
+  height: 15pt;
+  line-height: 11pt;
+  padding:  0px;
+  margin:  0px;
+}
+
+table.sheet tr td {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0px 5px;
+}
+
+th.col_heading, td.row_heading {
+  border: 1px solid #000;
+  background: #DDD;
+  text-align: center;
+  width: 2em;
+  padding: 2px 0px;
+  border-width: 0px 1px 1px 0px;
+}
+
+td.cell {
+  background: #FFF;
+  border: 1px solid #CCC;
+  border-width: 0px 1px 1px 0px;
+  text-align: left;
+}
+
+td.selected_cell {
+  opacity: 0.5;
+  filter:alpha(opacity=50);
+}
+
+a.sheet_tab {
+  display: inline-block;
+  background: #AAA;
+  margin: 0 0.5em;
+  padding: 0.5em;
+  border: 1px solid grey;
+  border-width: 1px 1px 0px 1px;
+  color: #000;
+}
+
+a.sheet_tab:hover
+{
+  background: #7CF;
+  color: #125;
+}
+
+a.selected_tab
+{
+  background: #EEE;
+}
+
+div.sheet {
+  overflow: auto;
+  height: 715px;
+  margin: 0px;
+}
+
+div.spreadsheet_container
+{
+  padding: 0px;
+  display:block;
+  overflow:  hidden;
+}
+
+div.sheet_container
+{
+  border: 1px solid grey;
+  background-color: #DDD;
+  height: 736px;
+  overflow:  hidden;
+}
+
+div.spreadsheet_errors
+{
+  margin: 0.5em;
+  padding: 0.5em;
+  border: 2px solid red;
+  background-color: #FFDDDD;
+}
+
+div.spreadsheet_errors h1
+{
+  color: #FF0000;
+  text-align: left;
+  line-height: 1;
+  font-size: 125%;
+}
+
+div.spreadsheet_errors ul li
+{
+  list-style: disc inside none;
+}
+
+div.row_headings
+{
+  height: 715px;
+  width:3em;
+  border-right:  1px solid #bbb;
+}
+
+div.col_headings
+{
+  height: 15pt;
+  border-bottom:  1px solid #bbb;
+}
+
+div.col_heading, div.row_heading, div.col_heading_spacer
+{
+  background: #DDD;
+  text-align: center;
+  vertical-align: middle;
+  width: 3em;
+  padding: 0;
+  margin: 0;
+  height: 15pt;
+}
+
+div.col_heading, div.col_heading_spacer
+{
+  display: block;
+  /* Because having whitespace between inline-blocks puts a space between them */
+  float:left;
+}
+
+div.row_heading
+{
+  border:  none;
+  padding:  0px;
+}
+
+div.corner_heading
+{
+  width: 3em;
+  height: 15pt;
+  display: block;
+  float:left;
+  border-right: 1px solid #bbb;
+  z-index:5;
+  background-color: #DDD;
+  position: absolute;
+}
+
+div.odd_heading
+{
+ background: #BBB;
+}
+
+div.row_headings, div.col_headings
+{
+  overflow:  hidden;
+}
+
+div.selected_heading {
+  background-color: #69F;
+}
+
+div.odd_heading.selected_heading {
+  background-color: #47D;
+}
+
+div.pagination{
+    display:none;
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+}
+
+div#cell-info .panel-body {
+    height: 5em;
+    overflow: auto;
+    margin-bottom: 1em;
+}

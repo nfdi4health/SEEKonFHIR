@@ -1,0 +1,38 @@
+{
+  "data": [
+    {
+      "id": "12",
+      "type": "publications",
+      "attributes": {
+        "title": "A Maximal Publication"
+      },
+      "links": {
+        "self": "/publications/12"
+      }
+    },
+    {
+      "id": "11",
+      "type": "publications",
+      "attributes": {
+        "title": "A Minimal Publication"
+      },
+      "links": {
+        "self": "/publications/11"
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "links": {
+    "self": "/publications?page%5Bnumber%5D=1&page%5Bsize%5D=1000000",
+    "first": "/publications?page%5Bnumber%5D=1&page%5Bsize%5D=1000000",
+    "prev": null,
+    "next": null,
+    "last": "/publications?page%5Bnumber%5D=1&page%5Bsize%5D=1000000"
+  },
+  "meta": {
+    "base_url": "http://localhost:3000",
+    "api_version": "0.3"
+  }
+}

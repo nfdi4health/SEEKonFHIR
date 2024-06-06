@@ -1,0 +1,96 @@
+<div class="alert alert-info">
+  <ul style="padding-left:1em;">
+    <li>
+      The <b><%= t('asset_gatekeeper').downcase %></b> is a person in your <%=t('project').downcase -%> that needs to approve items before they are finally published.
+    </li>
+    <li>
+      If you requested to publish an item, an email will have be sent to that person, asking them to either approve
+      or reject the publication.
+    </li>
+    <li>
+      The following is a list of the items that you have requested to make published, but are still waiting for the approval from an <%= t('asset_gatekeeper').downcase %> in your <%=t('project').downcase -%>.
+    </li>
+  </ul>
+</div>
+
+<br/>
+<% if @waiting_approval_assets.empty? %>
+  <span class="published">You have no items waiting for the approval from your <%=t('project').downcase -%> <%= t('asset_gatekeeper').downcase %></span>
+  <br/>
+<% else %>
+  <div class="waiting_approval_items">
+    <h2 style="margin:8px 0px;">Items awaiting approval:</h2>
+  <% isa_order = ['Investigation', 'Study', 'Assay'] %>
+  <% @waiting_approval_assets.sort_by { |a| [a.is_isa? ? -1 : 1, isa_order.index(a.class.name), a.class.name] }.each do |asset| %>
+    <ul class="item_waiting_for_approval">
+      <li class="type_and_title">
+        <%= text_for_resource asset -%>:&nbsp;<%= link_to (asset.title), asset -%>
+        <%= list_item_visibility(asset, "icon_visibility") -%>
+      </li>
+      <div class="request_info">
+        Requested on:&nbsp;
+        <%
+          log = ResourcePublishLog.where(["resource_type=? AND resource_id=? AND publish_state=? AND user_id=?",
+                                          asset.class.name, asset.id, ResourcePublishLog::WAITING_FOR_APPROVAL, current_user.id]).last
+        %>
+        <%= date_as_string(log.created_at,true) %>
+        <br/>
+        Waiting to be approved by:&nbsp;
+        <% gatekeeper_links = asset.asset_gatekeepers.collect { |gatekeeper| link_to(gatekeeper.name, gatekeeper) }.join(' or ').html_safe %>
+        <%= gatekeeper_links %>
+      </div>
+      <%= button_link_to "Cancel this request", 'destroy',
+                         cancel_publishing_request_person_path(current_user.person,
+                                                               asset_id: asset.id,
+                                                               asset_class: asset.class),
+                         options={class:'cancel_publish_request', method: :post} -%>
+    </ul>
+  <% end %>
+  </div>
+<% end %>
+<% unless @rejected_assets.empty? %>
+  <div class="alert alert-danger">
+    <ul style="padding-left:1em;">
+      <li>
+        The following is a list of the items that have been rejected by an <%= t('asset_gatekeeper').downcase %> in your <%=t('project').downcase -%>.
+        <br>
+        Modify your request following the gatekeeper's comments, or cancel your request.
+      </li>
+    </ul>
+  </div>
+  <div class="rejected_items">
+    <h2 style="margin:8px 0px;">Rejected items:</h2>
+    <% isa_order = ['Investigation', 'Study', 'Assay'] %>
+    <% @rejected_assets.sort_by { |a| [a.is_isa? ? -1 : 1, isa_order.index(a.class.name), a.class.name] }.each do |asset| %>
+      <ul class="item_waiting_for_approval">
+        <li class="type_and_title">
+          <%= text_for_resource asset -%>:&nbsp;<%= link_to (asset.title), asset -%>
+          <%= list_item_visibility(asset, "icon_visibility") -%>
+    </li>
+        <div class="request_info">
+          Requested on:
+          <%= date_as_string(asset.resource_publish_logs.last(2).first.created_at,true) %>
+          <br/>
+          Rejected on:&nbsp;
+          <%= date_as_string(asset.last_publishing_log.created_at,true) %>
+          by:&nbsp;
+          <% gatekeeper_links = asset.asset_gatekeepers.collect { |gatekeeper| link_to(gatekeeper.name, gatekeeper) }.join(' or ').html_safe %>
+          <%= gatekeeper_links %>
+          <br/>
+          Comments: <%= asset.last_publishing_log.comment %>
+        </div>
+        <%= button_link_to "Cancel this request", 'destroy',
+                           cancel_publishing_request_person_path(current_user.person,
+                                                                 asset_id: asset.id,
+                                                                 asset_class: asset.class),
+                           options={class:'cancel_publish_request', method: :post} -%>
+      </ul>
+    <% end %>
+  </div>
+<% end %>
+<br/>
+<b>
+  <div>
+    <%= button_link_to "Back to your profile", 'back', person_path(params[:id].to_i) -%>
+  </div>
+</b>

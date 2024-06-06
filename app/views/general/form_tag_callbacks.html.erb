@@ -1,0 +1,58 @@
+<script type="text/javascript">
+    <% if loading -%>
+        var loading_<%= id -%> = function () {<%= loading.html_safe -%>
+        };
+
+        $j('#<%= id -%>').on("ajax:before", loading_<%= id -%>);
+    <% end -%>
+
+    <% if before -%>
+        var before_<%= id -%> = function () {
+            <%= before.html_safe -%>
+        };
+
+        $j('#<%= id -%>').on("ajax:before", before_<%= id -%>);
+    <% end -%>
+
+    <% if complete -%>
+        var complete_<%= id -%> = function () {<%= complete.html_safe -%>
+        };
+
+        $j('#<%= id -%>').on("ajax:complete", complete_<%= id -%>);
+
+    <% end -%>
+
+    <% if after -%>
+        var after_<%= id -%> = function () {<%= after.html_safe -%>
+        };
+
+        $j('#<%= id -%>').on("ajax:after", after_<%= id -%>);
+    <% end -%>
+
+    <% if success -%>
+        var success_<%= id -%> = function () {<%= success.html_safe -%>
+        };
+
+        $j('#<%= id -%>').on("ajax:success", success_<%= id -%>);
+    <% end -%>
+
+    <% if failure -%>
+        var failure_<%= id -%> = function () {<%= failure.html_safe -%>
+        };
+
+        $j('#<%= id -%>').on("ajax:error", failure_<%= id -%>);
+    <% end -%>
+
+    <% if success_update_element -%>
+    $j('#<%= id -%>').on("ajax:success", function(event, data, status, xhr) {
+        $j('#<%= success_update_element -%>').html(data);
+    });
+    <% end -%>
+
+    <% if failure_update_element -%>
+    $j('#<%= id -%>').on("ajax:error", function(event, xhr, status, statusText) {
+        $j('#<%= failure_update_element -%>').html(xhr.responseText);
+    });
+    <% end -%>
+
+</script>

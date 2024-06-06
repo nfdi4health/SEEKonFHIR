@@ -1,0 +1,10 @@
+root:
+  title: <%= I18n.t('project') + " items" %>
+  children: models, data, sops, presentations, publications
+  deletable: false
+
+unsorted_items:
+  title: "Unsorted items"
+  editable: false
+  deletable: false
+  incoming: true

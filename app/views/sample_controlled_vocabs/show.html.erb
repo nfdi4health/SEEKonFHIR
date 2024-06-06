@@ -1,0 +1,38 @@
+<% n_terms = @sample_controlled_vocab.sample_controlled_vocab_terms.count %>
+
+<%= render :partial => "general/item_title", :locals => {:item => @sample_controlled_vocab,:buttons_partial => 'buttons'} %>
+
+<%= item_description @sample_controlled_vocab.description -%>
+
+<% if @sample_controlled_vocab.source_ontology.present? %>
+  <p>
+    <strong>Ontology:</strong>
+    <%= ols_ontology_link(@sample_controlled_vocab.source_ontology) %>
+  </p>
+  <p>
+    <strong>Root URIs:</strong>
+    <%= ols_root_term_link(@sample_controlled_vocab.source_ontology,@sample_controlled_vocab.ols_root_term_uris) %>
+  </p>
+<% end %>
+
+<h3><%= "#{n_terms} #{'Term'.pluralize(n_terms)}" %></h3>
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Label</th>
+    <th>Ontology URI</th>
+    <th>Parent URI</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @sample_controlled_vocab.sample_controlled_vocab_terms.each do |term| %>
+    <tr>
+      <td><%= term.label %></td>
+      <td><%= term.iri %></td>
+      <td><%= term.parent_iri %></td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
+

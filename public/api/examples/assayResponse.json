@@ -1,0 +1,174 @@
+{
+  "data": {
+    "id": "51",
+    "type": "assays",
+    "attributes": {
+      "policy": {
+        "access": "no_access",
+        "permissions": [
+
+        ]
+      },
+      "discussion_links": [
+        {
+          "id": "20",
+          "label": "Slack",
+          "url": "http://www.slack.com/"
+        }
+      ],
+      "snapshots": [
+
+      ],
+      "title": "A Maximal Modelling Assay",
+      "description": "A Western Blot Assay",
+      "other_creators": "Anonymous creator",
+      "position": null,
+      "assay_class": {
+        "title": "Modelling analysis",
+        "key": "MODEL",
+        "description": null
+      },
+      "assay_type": {
+        "label": "Model analysis type",
+        "uri": "http://jermontology.org/ontology/JERMOntology#Model_analysis_type"
+      },
+      "technology_type": {
+        "label": null,
+        "uri": null
+      },
+      "tags": [
+
+      ],
+      "creators": [
+        {
+          "profile": "/people/326",
+          "family_name": "One",
+          "given_name": "Some",
+          "affiliation": "University of Somewhere",
+          "orcid": null
+        }
+      ]
+    },
+    "relationships": {
+      "creators": {
+        "data": [
+          {
+            "id": "326",
+            "type": "people"
+          }
+        ]
+      },
+      "submitter": {
+        "data": [
+          {
+            "id": "315",
+            "type": "people"
+          }
+        ]
+      },
+      "organisms": {
+        "data": [
+          {
+            "id": "12",
+            "type": "organisms"
+          }
+        ]
+      },
+      "human_diseases": {
+        "data": [
+
+        ]
+      },
+      "people": {
+        "data": [
+          {
+            "id": "315",
+            "type": "people"
+          },
+          {
+            "id": "326",
+            "type": "people"
+          }
+        ]
+      },
+      "projects": {
+        "data": [
+          {
+            "id": "329",
+            "type": "projects"
+          }
+        ]
+      },
+      "investigation": {
+        "data": {
+          "id": "57",
+          "type": "investigations"
+        }
+      },
+      "study": {
+        "data": {
+          "id": "55",
+          "type": "studies"
+        }
+      },
+      "data_files": {
+        "data": [
+          {
+            "id": "17",
+            "type": "data_files"
+          }
+        ]
+      },
+      "models": {
+        "data": [
+          {
+            "id": "41",
+            "type": "models"
+          }
+        ]
+      },
+      "sops": {
+        "data": [
+          {
+            "id": "21",
+            "type": "sops"
+          }
+        ]
+      },
+      "publications": {
+        "data": [
+          {
+            "id": "23",
+            "type": "publications"
+          }
+        ]
+      },
+      "placeholders": {
+        "data": [
+
+        ]
+      },
+      "documents": {
+        "data": [
+          {
+            "id": "31",
+            "type": "documents"
+          }
+        ]
+      }
+    },
+    "links": {
+      "self": "/assays/51"
+    },
+    "meta": {
+      "created": "2022-06-07T14:13:12.000Z",
+      "modified": "2022-06-07T14:13:12.000Z",
+      "api_version": "0.3",
+      "base_url": "http://localhost:3000",
+      "uuid": "e37d2a60-c899-013a-0f7e-0a81884ed284"
+    }
+  },
+  "jsonapi": {
+    "version": "1.0"
+  }
+}

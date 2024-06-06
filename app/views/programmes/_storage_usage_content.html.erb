@@ -1,0 +1,13 @@
+<p>
+  Total: <strong><%= number_to_human_size programme.total_asset_size %></strong>
+</p>
+
+<% if programme.projects.any? %>
+
+    The breakdown for each <%= t('project').downcase -%> is as follows:
+    <%= expandable_list(programme.projects, limit: 10) do |project| %>
+      <%= link_to project.title, project %> -
+      <%= render partial: 'projects/storage_usage_content', locals: { project: project, standalone: false } %>
+    <% end %>
+
+<% end %>

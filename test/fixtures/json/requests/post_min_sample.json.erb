@@ -1,0 +1,26 @@
+{
+  "data": {
+    "type": "samples",
+    "attributes": {
+      "attribute_map": {
+        "full_name": "John Smith"
+      }
+    },
+    "relationships": {
+      "sample_type": {
+        "data": {
+          "id": "<%= @sample_type.id %>",
+          "type": "sample_types"
+        }
+      },
+      "projects": {
+        "data": [
+          {
+            "id": "<%= @project.id %>",
+            "type": "projects"
+          }
+        ]
+      }
+    }
+  }
+}

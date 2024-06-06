@@ -1,0 +1,24 @@
+<% environment.context_class.instance_eval { include Seek::Util.routes } %>
+
+function initialise_rich_text_editors(selector) {
+    jQuery(selector).each(function( index ) {
+        new SimpleMDE({
+            element: this,
+            blockStyles: {
+                italic: "_"
+            },
+            spellChecker: false,
+            previewRender: function(plainText, preview) {
+                $j.post('<%= previews_markdown_path %>', { content: plainText })
+                    .done(function (html) { preview.innerHTML = html; })
+                    .fail(function () { preview.innerHTML = 'An error occurred whilst generating the preview.'; });
+
+                return "Loading preview...";
+            }
+        });
+    });
+}
+
+jQuery( document ).ready(function() {
+    initialise_rich_text_editors('.rich-text-edit');
+});

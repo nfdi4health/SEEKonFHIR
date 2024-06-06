@@ -1,0 +1,124 @@
+{
+  "data": {
+    "type": "workflows",
+    "id": "110",
+    "attributes": {
+      "title": "A Maximally Patched Workflow",
+      "description": "A workflow to do important stuff",
+      "workflow_class": {
+        "key": "cwl"
+      },
+      "tags": [
+        "tag1",
+        "tag2",
+        "tag3"
+      ],
+      "operation_annotations": [
+        {
+          "label": "Clustering",
+          "identifier": "http://edamontology.org/operation_3432"
+        },
+        {
+          "label": "Correlation",
+          "identifier": "http://edamontology.org/operation_3465"
+        }
+      ],
+      "topic_annotations": [
+        {
+          "label": "Chemistry",
+          "identifier": "http://edamontology.org/topic_3314"
+        },
+        {
+          "label": "Sample collections",
+          "identifier": "http://edamontology.org/topic_3277"
+        }
+      ],
+      "tools": [
+        {
+          "name": "BioPython",
+          "id": "https://bio.tools/biopython"
+        }
+      ],
+      "license": "CC-BY-4.0",
+      "other_creators": "John Smith, Jane Smith",
+      "policy": {
+        "access": "no_access",
+        "permissions": [
+          {
+            "resource": {
+              "id": "409",
+              "type": "projects"
+            },
+            "access": "edit"
+          }
+        ]
+      }
+    },
+    "relationships": {
+      "creators": {
+        "data": [
+          {
+            "id": "400",
+            "type": "people"
+          }
+        ]
+      },
+      "projects": {
+        "data": [
+          {
+            "id": "409",
+            "type": "projects"
+          }
+        ]
+      },
+      "assays": {
+        "data": [
+          {
+            "id": "85",
+            "type": "assays"
+          }
+        ]
+      },
+      "publications": {
+        "data": [
+          {
+            "id": "85",
+            "type": "publications"
+          }
+        ]
+      },
+      "presentations": {
+        "data": [
+          {
+            "id": "75",
+            "type": "presentations"
+          }
+        ]
+      },
+      "data_files": {
+        "data": [
+          {
+            "id": "75",
+            "type": "data_files"
+          }
+        ]
+      },
+      "documents": {
+        "data": [
+          {
+            "id": "75",
+            "type": "documents"
+          }
+        ]
+      },
+      "sops": {
+        "data": [
+          {
+            "id": "75",
+            "type": "sops"
+          }
+        ]
+      }
+    }
+  }
+}

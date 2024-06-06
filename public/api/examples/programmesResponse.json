@@ -1,0 +1,48 @@
+{
+  "data": [
+    {
+      "id": "1292",
+      "type": "programmes",
+      "attributes": {
+        "title": "A Maximal Programme"
+      },
+      "links": {
+        "self": "/programmes/1292"
+      }
+    },
+    {
+      "id": "1291",
+      "type": "programmes",
+      "attributes": {
+        "title": "A Programme: 28"
+      },
+      "links": {
+        "self": "/programmes/1291"
+      }
+    },
+    {
+      "id": "1290",
+      "type": "programmes",
+      "attributes": {
+        "title": "A Minimal Programme"
+      },
+      "links": {
+        "self": "/programmes/1290"
+      }
+    }
+  ],
+  "jsonapi": {
+    "version": "1.0"
+  },
+  "links": {
+    "self": "/programmes?page%5Bnumber%5D=1&page%5Bsize%5D=1000000",
+    "first": "/programmes?page%5Bnumber%5D=1&page%5Bsize%5D=1000000",
+    "prev": null,
+    "next": null,
+    "last": "/programmes?page%5Bnumber%5D=1&page%5Bsize%5D=1000000"
+  },
+  "meta": {
+    "base_url": "http://localhost:3000",
+    "api_version": "0.3"
+  }
+}

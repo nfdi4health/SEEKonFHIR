@@ -1,0 +1,96 @@
+<% original_path ||= request.original_fullpath %>
+<% strategy = params[:strategy] || 'password' %>
+
+<% unless logged_in_and_registered? -%>
+    <div class="panel panel-default" id="login-panel">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          Log in
+        </h4>
+      </div>
+
+      <div class="panel-body">
+        <%# tabs if omniauth authentication with providers is enabled %>
+        <% if show_omniauth_login? %>
+          <ul class="nav nav-tabs" role="tablist">
+            <%= content_tag(:li, role: 'presentation', class: strategy == 'password' ? 'active' : nil) do %>
+              <a href="#password_login" aria-controls="password_login" role="tab" data-toggle="tab">SEEK login</a>
+            <% end %>
+            <% if show_elixir_aai_login? %>
+              <%= content_tag(:li, role: 'presentation', class: strategy == 'elixir_aai' ? 'active' : nil) do %>
+                <a href="#elixir_aai_login" aria-controls="elixir_aai_login" role="tab" data-toggle="tab"><%= t('login.elixir_aai') %></a>
+              <% end %>
+            <% end %>
+            <% if show_ldap_login? %>
+              <%= content_tag(:li, role: 'presentation', class: strategy == 'ldap' ? 'active' : nil) do %>
+                <a href="#ldap_login" aria-controls="ldap_login" role="tab" data-toggle="tab"><%= t('login.ldap') %></a>
+              <% end %>
+            <% end %>
+            <% if show_github_login? %>
+              <%= content_tag(:li, role: 'presentation', class: strategy == 'github' ? 'active' : nil) do %>
+                <a href="#github_login" aria-controls="github_login" role="tab" data-toggle="tab"><%= t('login.github') %></a>
+              <% end %>
+            <% end %>
+          </ul>
+        <% end #omniauth enabled and providers available %>
+
+        <div class="tab-content">
+          <%= content_tag(:div, id: 'password_login', role: 'tabpanel', class: strategy == 'password' ? 'tab-pane active' : 'tab-pane') do %>
+            <%= form_tag main_app.session_path do %>
+              <%= hidden_field_tag "called_from[path]", original_path -%>
+              <%= hidden_field_tag "called_from[controller]", controller.controller_name -%>
+              <%= hidden_field_tag "called_from[action]", controller.action_name -%>
+              <%= hidden_field_tag "called_from[id]", params[:id] -%>
+
+              <div class="form-group">
+                <label>Username or Email Address</label>
+                <%= text_field_tag 'login', nil, placeholder: 'Username or Email Address', class: 'form-control', autofocus: true -%>
+              </div>
+
+              <div class="form-group">
+                <label>Password</label>
+                <%= password_field_tag 'password', nil, placeholder: 'Password', class: 'form-control' -%>
+              </div>
+
+              <div class="form-group">
+                <%= check_box_tag 'remember_me',nil,true %>
+                <%= label :remember, :me, "Remember me" %>
+              </div>
+
+              <div class="form-group">
+                <%= submit_tag 'Log in', class: 'btn btn-primary', id: 'login_button' %>
+              </div>
+            <% end #form %>
+          <% end %>
+
+          <% if show_omniauth_login? %>
+            <% if show_elixir_aai_login? %>
+              <%= content_tag(:div, id: 'elixir_aai_login', role: 'tabpanel', class: strategy == 'elixir_aai' ? 'tab-pane active' : 'tab-pane') do %>
+                <div class='text-center'>
+                  <%= link_to image('ls_aai_login'), omniauth_authorize_path(:elixir_aai, state: "return_to:#{original_path}"), method: :post %>
+                </div>
+              <% end %>
+            <% end %>
+            <% if show_ldap_login? %>
+              <%= content_tag(:div, id: 'ldap_login', role: 'tabpanel', class: strategy == 'ldap' ? 'tab-pane active' : 'tab-pane') do %>
+                <%= render partial: 'identities/ldap_form', locals: { original_path: original_path } %>
+              <% end %>
+            <% end %>
+            <% if show_github_login? %>
+              <%= content_tag(:div, id: 'github_login', role: 'tabpanel', class: strategy == 'github' ? 'tab-pane active' : 'tab-pane') do %>
+                <div class='text-center'>
+                  <%= button_link_to 'Sign in with GitHub', 'github_large', omniauth_authorize_path(:github, state: "return_to:#{original_path}"), method: :post %>
+                </div>
+              <% end %>
+            <% end %>
+          <% end #omniauth enabled and providers available %>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <%= link_to "Register an account", signup_path %> or
+        <%= link_to "Forgotten your password?", forgot_password_path %>
+      </div>
+
+    </div>
+<% end -%>

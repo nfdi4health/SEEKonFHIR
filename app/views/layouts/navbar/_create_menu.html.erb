@@ -1,0 +1,56 @@
+<li class="dropdown" id="create-menu">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    <span class="hidden-md">Create</span>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li role="presentation" class="dropdown-header visible-md">Create</li>
+
+    <%= render_menu_group(t('menu.yellow_pages'), [
+        [t('programme'), new_programme_path, can_create_programmes?],
+        [t('project'), guided_create_projects_path, true],
+        [t('institution'), new_institution_path, can_create_institutions?],
+        [t('person'), new_person_path, can_create_profiles?]
+    ]) %>
+
+    <% if can_create_new_items? %>
+      <%= render_menu_group(t('menu.isa'), [
+          [t('investigation'), new_investigation_path, Seek::Config.investigations_enabled],
+          [t('study'), new_study_path, Seek::Config.studies_enabled],
+          [t('assay'), new_assay_path, Seek::Config.assays_enabled],
+          [t('template'), new_template_path, Seek::Config.isa_json_compliance_enabled],
+      ]) %>
+
+      <%= render_menu_group(t('menu.assets'), [
+          [t('data_file'), new_data_file_path, Seek::Config.data_files_enabled],
+          [t('model'), new_model_path, Seek::Config.models_enabled],
+          [t('sop'), new_sop_path, Seek::Config.sops_enabled],
+          [t('workflow'), new_workflow_path, Seek::Config.workflows_enabled],
+          [t('publication'), new_publication_path, Seek::Config.publications_enabled],
+          [t('document'), new_document_path, Seek::Config.documents_enabled],
+          [t('file_template'), new_file_template_path, Seek::Config.file_templates_enabled],
+          [t('placeholder'), new_placeholder_path, Seek::Config.placeholders_enabled],
+          [t('collection'), new_collection_path, Seek::Config.collections_enabled]
+      ]) %>
+
+      <%= render_menu_group(t('menu.activities'), [
+        [t('presentation'), new_presentation_path, Seek::Config.presentations_enabled],
+        [t('event'), new_event_path, Seek::Config.events_enabled],
+      ]) %>
+
+      <%= render_menu_group(t('menu.samples'), [
+          [t('sample'), select_sample_types_path(act: :create), Sample.can_create?],
+          [t('sample_type'), new_sample_type_path, SampleType.can_create?],
+          [t('strain'), new_strain_path,  Seek::Config.organisms_enabled && can_create_organisms?],
+          [t('organism'), new_organism_path,  Seek::Config.organisms_enabled && can_create_organisms?],
+      ]) %>
+
+      <%= render_menu_group(t('menu.vocabularies'), [
+          [t('human_disease'), new_human_disease_path, can_create_human_diseases?]
+      ]) %>
+    <% else %>
+      <li role="presentation" class="dropdown-header"><span style="color:red">You cannot add assets or other items until you are a member of a <%= t('project') %>.</span></li>
+    <% end %>
+  </ul>
+</li>

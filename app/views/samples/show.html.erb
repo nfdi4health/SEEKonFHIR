@@ -1,0 +1,44 @@
+<%= render partial: 'general/item_title',locals: { item: @sample, buttons_partial: 'assets/asset_buttons' } %>
+
+<%= render partial: 'general/show_page_tab_definitions' %>
+
+<div class="tab-content">
+  <%= tab_pane('overview') do %>
+    <div class="row">
+      <div class="col-md-9 col-sm-8 box_about_actor">
+
+        <div class="row">
+          <div class="col-md-6">
+            <p>
+              <% link = sample_type_link(@sample) %>
+              <% if link %>
+                <label>Sample type:</label>
+                <%= sample_type_link(@sample) %>
+              <% end %>
+            </p>
+            <% if @sample.originating_data_file %>
+              <p>
+                <label>Source data:</label>
+                <%= link_to @sample.originating_data_file.title, @sample.originating_data_file %>
+                <% if @sample.edit_count.positive? %>
+                  <span class="label label-danger"
+                        data-tooltip='<%= tooltip("The sample has been edited since it was extracted from this datafile.") -%>'>
+                    No longer valid
+                  </span>
+                <% end %>
+              </p>
+            <% end %>
+            <%= render :partial => "attribute_values", :locals => { :sample => @sample } %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-sm-4">
+        <%= render :partial => "assets/resource_main_content_right", :locals => { :resource => @sample } %>
+      </div>
+    </div>
+  <% end %>
+  <%= tab_pane('related-items') do %>
+    <%= render partial: 'general/items_related_to', object: @sample %>
+  <% end %>
+</div>
